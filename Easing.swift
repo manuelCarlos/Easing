@@ -70,7 +70,6 @@ public func quadraticEaseOut <T: FloatingPoint> (_ x: T) -> T{
 // y = (1/2)((2x)^2)              [0, 0.5)
 // y = -(1/2)((2x-1)*(2x-3) - 1)  [0.5, 1]
 public func quadraticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
-    
     if x < 1/2{
         return 2 * x * x;
     }
@@ -101,12 +100,10 @@ public func cubicEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
 // y = (1/2)((2x)^3)        [0, 0.5)
 // y = (1/2)((2x-2)^3 + 2)  [0.5, 1]
 public func cubicEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
-    
     if(x < 1/2){
         return 4 * x * x * x
     }
-    else
-    {
+    else{
         let f = ((2 * x) - 2)
         return 1/2 * f * f * f + 1
     }
@@ -162,7 +159,6 @@ public func quinticEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
 // y = (1/2)((2x)^5)      in  [0, 0.5]
 // y = (1/2)((2x-2)^5 + 2) in [0.5, 1]
 public func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
-    
     if(x < 1/2){
         return 16 * x * x * x * x * x
     }
@@ -177,14 +173,12 @@ public func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
 
 //   quarter-cycle  sine wave
 public func sineEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
-    
-    return (((x - 1) * T.pi/2).sine) + 1/1
+    return ( ((x - 1) * T.pi/2).sine ) + 1/1
 }
 
 
 //   quarter-cycle of sine wave
 public func sineEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
-    
     return (x * T.pi/2).sine
 }
 
@@ -200,14 +194,12 @@ public func sineEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
 
 // shifted quadrant IV of unit circle
 public func circularEaseIn <T: FloatingPoint > (_ x: T  ) -> T{
-    
     return 1 - sqrt(1 - (x * x))
 }
 
 
 //  shifted quadrant II of unit circle
 public func  circularEaseOut <T: FloatingPoint > (_ x: T  ) -> T{
-    
     return sqrt((2 - x) * x)
 }
 
@@ -240,7 +232,6 @@ public func  exponentialEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
 
 //  exponential  y = -2^(-10x) + 1
 public func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
-    
     return (x == 1) ? x : 1 - ( (-10 * x).powerOfTwo )
 }
 
@@ -250,7 +241,6 @@ public func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
 // y = (1/2)2^(10(2x - 1))          [0,0.5)
 // y = -(1/2)*2^(-10(2x - 1))) + 1  [0.5,1]
 public func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
-    
     if x == 0 || x == 1 { return x }
     
     if x < 1/2 {
@@ -261,5 +251,38 @@ public func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
     }
 }
 
+
+
+// Elastic
+
+//  damped sine wave y = sin(13 pi/2 * x) * pow(2, 10 * (x - 1))
+public func elasticEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
+    return ( (13 * T.pi/2 * x).sine) * ( 10 * (x - 1)).powerOfTwo
+}
+
+
+//  damped sine wave y = sin(-13 pi/2 * (x + 1)) * pow(2, -10x) + 1
+public func  elasticEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
+    let f =  (-13 * T.pi/2 * (x + 1/1)).sine
+    let g =  ( -10 * x).powerOfTwo
+    return f * g + 1/1
+}
+
+
+// piecewise exponentially-damped sine wave:
+// y = (1/2) * sin(13pi/2*(2*x))*pow(2, 10 * ((2*x) - 1))         [0,0.5)
+// y = (1/2) * (sin(-13pi/2*((2x-1)+1)) * pow(2,-10(2*x-1)) + 2)  [0.5, 1]
+public func ElasticEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
+    
+    if(x < 1/2){
+        let f = (13 * T.pi/2 * (2 * x)).sine
+        return 1/2 * f * (  (10 * ((2 * x) - 1) ).powerOfTwo  )
+    }
+    else{
+        let f = (-13 * T.pi/2 * ((2 * x - 1) + 1)).sine
+        let g = (-10 * (2 * x - 1)).powerOfTwo
+        return 1/2 * (f * g + 2/1)
+    }
+}
 
 
