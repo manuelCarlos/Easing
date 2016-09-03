@@ -1,10 +1,16 @@
-//: Playground - noun: a place where people can play
+//
+//  Easing.swift
+//  
+//
+//  Created by Manuel Lopes on 03/09/2016.
+//
+
 
 
 import UIKit
 
 public protocol FloatingPointMath: FloatingPoint{
-
+    
     var sine: Self {get}
     var cosine: Self {get}
     var powerOfTwo: Self {get}
@@ -12,19 +18,19 @@ public protocol FloatingPointMath: FloatingPoint{
 
 
 extension Float : FloatingPointMath {
-   
+    
     public var sine : Float {return sin(self)}
     public var cosine : Float {return cos(self)}
     public var powerOfTwo: Float {return pow(2, self)}
-   
+    
 }
 
 extension Double : FloatingPointMath {
     public var sine : Double {return sin(self)}
     public var cosine : Double {return cos(self)}
     public var powerOfTwo: Double {return pow(2, self)}
-
-
+    
+    
 }
 
 extension CGFloat : FloatingPointMath {
@@ -37,7 +43,7 @@ extension CGFloat : FloatingPointMath {
 
 
 
-// Linear 
+// Linear
 
 //   line y = x
 public func linear <T: FloatingPoint> (_ x: T ) -> T{
@@ -64,19 +70,19 @@ public func quadraticEaseOut <T: FloatingPoint> (_ x: T) -> T{
 // y = (1/2)((2x)^2)              [0, 0.5)
 // y = -(1/2)((2x-1)*(2x-3) - 1)  [0.5, 1]
 public func quadraticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
-
+    
     if x < 1/2{
         return 2 * x * x;
     }
     else{
         return (-2 * x * x) + (4 * x) - 1;
     }
-
+    
 }
 
 
 
-// Cubic 
+// Cubic
 
 //   cubic y = x^3
 public func  cubicEaseIn <T: FloatingPoint> (_ x: T  ) -> T{
@@ -95,7 +101,7 @@ public func cubicEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
 // y = (1/2)((2x)^3)        [0, 0.5)
 // y = (1/2)((2x-2)^3 + 2)  [0.5, 1]
 public func cubicEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
-
+    
     if(x < 1/2){
         return 4 * x * x * x
     }
@@ -156,7 +162,7 @@ public func quinticEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
 // y = (1/2)((2x)^5)      in  [0, 0.5]
 // y = (1/2)((2x-2)^5 + 2) in [0.5, 1]
 public func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
-
+    
     if(x < 1/2){
         return 16 * x * x * x * x * x
     }
@@ -171,8 +177,8 @@ public func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
 
 //   quarter-cycle  sine wave
 public func sineEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
-  
-        return (((x - 1) * T.pi/2).sine) + 1/1
+    
+    return (((x - 1) * T.pi/2).sine) + 1/1
 }
 
 
@@ -201,7 +207,7 @@ public func circularEaseIn <T: FloatingPoint > (_ x: T  ) -> T{
 
 //  shifted quadrant II of unit circle
 public func  circularEaseOut <T: FloatingPoint > (_ x: T  ) -> T{
-
+    
     return sqrt((2 - x) * x)
 }
 
@@ -228,23 +234,23 @@ public func  circularEaseInOut <T: FloatingPoint > (_ x: T  ) -> T{
 
 // exponential  y = 2^(10(x - 1))
 public func  exponentialEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
-  return (x == 0) ? x :  ( 10 * (x - 1) ).powerOfTwo
+    return (x == 0) ? x :  ( 10 * (x - 1) ).powerOfTwo
 }
 
 
 //  exponential  y = -2^(-10x) + 1
 public func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
-
+    
     return (x == 1) ? x : 1 - ( (-10 * x).powerOfTwo )
 }
 
- 
+
 
 //  piecewise exponential
 // y = (1/2)2^(10(2x - 1))          [0,0.5)
 // y = -(1/2)*2^(-10(2x - 1))) + 1  [0.5,1]
 public func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
-
+    
     if x == 0 || x == 1 { return x }
     
     if x < 1/2 {
@@ -254,22 +260,6 @@ public func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
         return -1/2 * (  ((-20 * x) + 10/1).powerOfTwo  ) + 1
     }
 }
-
-
-
-
-
-let t = exponentialEaseInOut(0.7)
-
-
-
-//func sine<T: FloatingPoint>(_ x: T) -> T {
-//    switch x {
-//        case is Double : return sin(x as! Double) as! T
-//        case is Float : return sin(x as! Float) as! T
-//        default: return 0 as T
-//    }
-//}
 
 
 
