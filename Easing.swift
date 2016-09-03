@@ -320,6 +320,46 @@ public func backEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
 }
 
 
+// Bounce
+
+
+public func bounceEaseIn <T: FloatingPoint > (_ x: T  ) -> T{
+    return 1 - bounceEaseOut(1 - x)
+}
+
+
+
+public func bounceEaseOut <T: FloatingPoint > (_ x: T  ) -> T{
+    
+    if x < 4/11{
+        return (121 * x * x) / 16
+    }
+    else if x < 8/11{
+        let f = (363/40 * x * x)
+        let g = (99/10 * x)
+        return f - g + 17/5
+    }
+    else if x < 9/10{
+        let f = (4356/361 * x * x)
+        let g = (35442/1805 * x)
+        return  f - g + 16061/1805
+    }
+    else{
+        let f = (54/5 * x * x)
+        return f - (513/25 * x) + 268/25
+    }
+}
+
+
+public func bounceEaseInOut <T: FloatingPoint > (_ x: T  ) -> T{
+    if(x < 1/2){
+        return 1/2 * bounceEaseIn(x * 2)
+    }
+    else{
+        let f = bounceEaseOut(x * 2 - 1) + 1/2
+        return 1/2 * f
+    }
+}
 
 
 
