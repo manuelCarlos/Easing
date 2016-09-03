@@ -1,6 +1,6 @@
 # Easing in Swift
 
-#### This project is composed of a stand-alone library of easing functions implemented in Swift (Easing.swift) 
+##### This project is composed of a stand-alone library of easing functions implemented in Swift (Easing.swift) 
 
 ### Type of supported functions:
  - Linear
