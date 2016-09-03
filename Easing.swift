@@ -45,7 +45,7 @@ extension CGFloat : FloatingPointMath {
 
 // Linear
 
-//   line y = x
+// Line y = x
 public func linear <T: FloatingPoint> (_ x: T ) -> T{
     return x
 }
@@ -55,18 +55,18 @@ public func linear <T: FloatingPoint> (_ x: T ) -> T{
 
 // Quadratic
 
-// parabola y = x^2
+// Parabola y = x^2
 public func quadraticEaseIn <T: FloatingPoint> (_ x: T) -> T{
     return x * x
 }
 
 
-//  parabola y = -x^2 + 2x
+// Parabola y = -x^2 + 2x
 public func quadraticEaseOut <T: FloatingPoint> (_ x: T) -> T{
     return -(x * (x - 2))
 }
 
-//  piecewise quadratic
+// Piecewise quadratic
 // y = (1/2)((2x)^2)              [0, 0.5)
 // y = -(1/2)((2x-1)*(2x-3) - 1)  [0.5, 1]
 public func quadraticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
@@ -83,12 +83,12 @@ public func quadraticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
 
 // Cubic
 
-//   cubic y = x^3
+// Cubic y = x^3
 public func  cubicEaseIn <T: FloatingPoint> (_ x: T  ) -> T{
     return x * x * x
 }
 
-//  cubic y = (x - 1)^3 + 1
+// Cubic y = (x - 1)^3 + 1
 public func cubicEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
     let p = x - 1
     return  p * p * p + 1/1
@@ -96,7 +96,7 @@ public func cubicEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
 
 
 
-//  piecewise cubic
+// Piecewise cubic
 // y = (1/2)((2x)^3)        [0, 0.5)
 // y = (1/2)((2x-2)^3 + 2)  [0.5, 1]
 public func cubicEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
@@ -113,20 +113,20 @@ public func cubicEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
 
 // Quartic
 
-// the quartic x^4
+// Quartic x^4
 public func  quarticEaseIn <T: FloatingPoint> (_ x: T  ) -> T{
     return x * x * x * x
 }
 
 
-//   quartic y = 1 - (x - 1)^4
+// Quartic y = 1 - (x - 1)^4
 public func  quarticEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
     let f = (x - 1)
     return f * f * f * (1 - x) + 1
 }
 
 
-//  piecewise quartic
+// Piecewise quartic
 // y = (1/2)((2x)^4)         [0, 0.5)
 // y = -(1/2)((2x-2)^4 - 2)  [0.5, 1]
 public func quarticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
@@ -143,19 +143,19 @@ public func quarticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
 
 // Quintic
 
-//  quintic y = x^5
+// Quintic y = x^5
 public func quinticEaseIn <T: FloatingPoint> (_ x: T  ) -> T{
     return x * x * x * x * x
 }
 
 
-//  quintic y = (x - 1)^5 + 1
+// Quintic y = (x - 1)^5 + 1
 public func quinticEaseOut <T: FloatingPoint> (_ x: T  ) -> T{
     let f = (x - 1)
     return f * f * f * f * f + 1/1
 }
 
-//  piecewise quintic
+// Piecewise quintic
 // y = (1/2)((2x)^5)      in  [0, 0.5]
 // y = (1/2)((2x-2)^5 + 2) in [0.5, 1]
 public func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
@@ -171,18 +171,18 @@ public func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T{
 
 // Sine
 
-//   quarter-cycle  sine wave
+// Quarter-cycle  sine wave
 public func sineEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
     return ( ((x - 1) * T.pi/2).sine ) + 1/1
 }
 
 
-//   quarter-cycle of sine wave
+// Quarter-cycle of sine wave
 public func sineEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
     return (x * T.pi/2).sine
 }
 
-//  half sine wave
+// Half sine wave
 public func sineEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
     
     return 1/2 * (1 - (x * T.pi).cosine)
@@ -192,13 +192,13 @@ public func sineEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
 
 // Circular
 
-// shifted quadrant IV of unit circle
+// Shifted quadrant IV of unit circle
 public func circularEaseIn <T: FloatingPoint > (_ x: T  ) -> T{
     return 1 - sqrt(1 - (x * x))
 }
 
 
-//  shifted quadrant II of unit circle
+// Shifted quadrant II of unit circle
 public func  circularEaseOut <T: FloatingPoint > (_ x: T  ) -> T{
     return sqrt((2 - x) * x)
 }
@@ -224,20 +224,20 @@ public func  circularEaseInOut <T: FloatingPoint > (_ x: T  ) -> T{
 
 // Exponencial
 
-// exponential  y = 2^(10(x - 1))
+// Exponential  y = 2^(10(x - 1))
 public func  exponentialEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
     return (x == 0) ? x :  ( 10 * (x - 1) ).powerOfTwo
 }
 
 
-//  exponential  y = -2^(-10x) + 1
+//  Exponential  y = -2^(-10x) + 1
 public func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
     return (x == 1) ? x : 1 - ( (-10 * x).powerOfTwo )
 }
 
 
 
-//  piecewise exponential
+//  Piecewise exponential
 // y = (1/2)2^(10(2x - 1))          [0,0.5)
 // y = -(1/2)*2^(-10(2x - 1))) + 1  [0.5,1]
 public func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
@@ -255,13 +255,13 @@ public func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
 
 // Elastic
 
-//  damped sine wave y = sin(13 pi/2 * x) * pow(2, 10 * (x - 1))
+//  Damped sine wave y = sin(13 pi/2 * x) * pow(2, 10 * (x - 1))
 public func elasticEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
     return ( (13 * T.pi/2 * x).sine) * ( 10 * (x - 1)).powerOfTwo
 }
 
 
-//  damped sine wave y = sin(-13 pi/2 * (x + 1)) * pow(2, -10x) + 1
+//  Damped sine wave y = sin(-13 pi/2 * (x + 1)) * pow(2, -10x) + 1
 public func  elasticEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
     let f =  (-13 * T.pi/2 * (x + 1/1)).sine
     let g =  ( -10 * x).powerOfTwo
@@ -269,7 +269,7 @@ public func  elasticEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
 }
 
 
-// piecewise exponentially-damped sine wave:
+// Piecewise exponentially-damped sine wave
 // y = (1/2) * sin(13pi/2*(2*x))*pow(2, 10 * ((2*x) - 1))         [0,0.5)
 // y = (1/2) * (sin(-13pi/2*((2x-1)+1)) * pow(2,-10(2*x-1)) + 2)  [0.5, 1]
 public func ElasticEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
@@ -284,5 +284,44 @@ public func ElasticEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
         return 1/2 * (f * g + 2/1)
     }
 }
+
+
+// Back
+
+// Cubic y = x^3-x*sin(x*pi)
+public func backEaseIn <T: FloatingPointMath > (_ x: T  ) -> T{
+    return x * x * x - x * (x * T.pi).sine
+}
+
+
+// Cubic y = 1-((1-x)^3-(1-x)*sin((1-x)*pi))
+public func  backEaseOut <T: FloatingPointMath > (_ x: T  ) -> T{
+    let f = (1 - x)
+    return 1 - ( f * f * f - f * (f * T.pi).sine )
+}
+
+
+
+// Piecewise  cubic
+// y = (1/2)*((2x)^3-(2x)*sin(2*x*pi))            [0, 0.5)
+// y = (1/2)*(1-((1-x)^3-(1-x)*sin((1-x)*pi))+1)  [0.5, 1]
+public func backEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T{
+    if(x < 1/2){
+        let f = 2 * x
+        return 1/2 * (f * f * f - f * (f * T.pi).sine )
+    }
+    else
+    {
+        let f = 1 - (2 * x - 1)
+        let g = (f * T.pi).sine
+        let h = (f * f * f - f *  g  )
+        return 1/2 * (1 - h ) + 1/2
+    }
+}
+
+
+
+
+
 
 
