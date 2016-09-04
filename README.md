@@ -34,4 +34,4 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 </p>
 
 
-## Please note: This code was written for Swift 3. Currently older versions of the language are not supported. 
+ **Please note** : This code was written for Swift 3. Currently older versions of the language are not supported. 
