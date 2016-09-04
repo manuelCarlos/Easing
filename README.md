@@ -1,6 +1,9 @@
+
+
+
 # Easing in Swift
 
-##### This project is composed of a stand-alone library of easing functions implemented in Swift (Easing.swift)
+##### This project is composed of a stand-alone library of easing functions implemented in Swift 3 (Easing.swift).
 
 ### Type of supported functions:
  - Linear
@@ -29,3 +32,6 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 <p align="center">
    <img src="http://manuelcarlos.github.io/images/easing.jpeg" >
 </p>
+
+
+## Please note: This code was written for Swift 3. Currently older versions of the language are not supported. 
