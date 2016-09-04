@@ -147,18 +147,6 @@ private enum EasingMode < T: FloatingPointMath >{
 }
 
 
-//MARK: - Linear
-
-/**
- Returns a floating-point value part of a **Linear** rate of change of a parameter over time.
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
-public func linear <T: FloatingPoint> (_ x: T ) -> T{
-    return x
-}
-
-
 
 //MARK: - Quadratic
 
