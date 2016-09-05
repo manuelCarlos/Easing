@@ -21,24 +21,24 @@
 
 The functions are design to accept a generic floating-point value  as time parameter,  
 and return a floating-point denoting the rate of change of a property over time.
- 
-Supported argument types: 
+
+Supported argument types:
  - Float
  - Double
  - CGFloat
- 
+
 
 
 ### Usage
 Add the file *Easing.swift* to your project and you are ready to go.
-The *Curve* type allows acess to all the different functions, for example:
+The *Curve* type allows access to all the different functions, for example:
 
     let x: Float = 0.3
-    let a = Curve.quadratic.easeIn(x) 
+    let a = Curve.quadratic.easeIn(x)
     // a = 0.09
-    
+
     let x2: CGFloat = 0.5
-    let b = Curve.sine.easeOut(x2) 
+    let b = Curve.sine.easeOut(x2)
     // b = 0.7071067811865
 
 
@@ -50,4 +50,4 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 </p>
 
 
- **Please note** : This code was written for Swift 3. Older versions of Swift are currently not supported. 
+ **Please note** : This code was written for Swift 3. Older versions of Swift are currently not supported.
