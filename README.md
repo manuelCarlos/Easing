@@ -46,7 +46,7 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 
 <p align="center">
-   <img src="http://manuelcarlos.github.io/images/easing.jpeg" >
+   <img src="http://manuelcarlos.github.io/assets/img/easing.jpeg" >
 </p>
 
 
