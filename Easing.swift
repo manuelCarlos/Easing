@@ -1,6 +1,5 @@
 //
 //  Easing.swift
-//  
 //
 //  Created by Manuel Lopes on 03.09.2017.
 //
@@ -433,8 +432,8 @@ private func sineEaseIn <T: FloatingPointMath> (_ x: T) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func sineEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
-    return (x * T.pi/2).sine
+private func sineEaseOut <T: FloatingPointMath > (_ x: T) -> T {
+    return (x * T.pi / 2).sine
 }
 
 /**
@@ -446,8 +445,8 @@ private func sineEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func sineEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
-    return 1/2 * (1 - (x * T.pi).cosine)
+private func sineEaseInOut <T: FloatingPointMath > (_ x: T) -> T {
+    return 1 / 2 * (1 - (x * T.pi).cosine)
 }
 
 // MARK: - Circular
@@ -462,7 +461,7 @@ private func sineEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func circularEaseIn <T: FloatingPoint > (_ x: T  ) -> T {
+private func circularEaseIn <T: FloatingPoint > (_ x: T) -> T {
     return 1 - sqrt(1 - (x * x))
 }
 
@@ -475,7 +474,7 @@ private func circularEaseIn <T: FloatingPoint > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  circularEaseOut <T: FloatingPoint > (_ x: T  ) -> T {
+private func circularEaseOut <T: FloatingPoint > (_ x: T) -> T {
     return sqrt((2 - x) * x)
 }
 
@@ -489,14 +488,14 @@ private func  circularEaseOut <T: FloatingPoint > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  circularEaseInOut <T: FloatingPoint > (_ x: T  ) -> T {
-    if x < 1/2 {
+private func circularEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+    if x < 1 / 2 {
         let h = 1 - sqrt(1 - 4 * (x * x))
-        return 1/2 * h
+        return 1 / 2 * h
     } else {
         let f = -((2 * x) - 3) * ((2 * x) - 1)
         let g = sqrt( f )
-        return 1/2 * ( g + 1 )
+        return 1 / 2 * ( g + 1 )
     }
 }
 
@@ -512,7 +511,7 @@ private func  circularEaseInOut <T: FloatingPoint > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  exponentialEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
+private func exponentialEaseIn <T: FloatingPointMath> (_ x: T) -> T {
     return (x == 0) ? x :  ( 10 * (x - 1) ).powerOfTwo
 }
 
@@ -526,7 +525,7 @@ private func  exponentialEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
+private func exponentialEaseOut <T: FloatingPointMath> (_ x: T) -> T {
     return (x == 1) ? x : 1 - ( (-10 * x).powerOfTwo )
 }
 
@@ -540,14 +539,14 @@ private func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
+private func exponentialEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x == 0 || x == 1 { return x }
 
-    if x < 1/2 {
-        return 1/2 * (  ((20 * x) - 10).powerOfTwo  )
+    if x < 1 / 2 {
+        return 1 / 2 * (  ((20 * x) - 10).powerOfTwo  )
     } else {
         let h = ((-20 * x) + 10).powerOfTwo
-        return -1/2 * h + 1
+        return -1 / 2 * h + 1
     }
 }
 
@@ -558,12 +557,12 @@ private func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
  
  Modeled after the damped sine wave:
  
- y = sin(13 pi/2 * x) * pow(2, 10 * (x - 1))
+ y = sin(13 pi / 2 * x) * pow(2, 10 * (x - 1))
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func elasticEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
-    return ( (13 * T.pi/2 * x).sine) * ( 10 * (x - 1)).powerOfTwo
+private func elasticEaseIn <T: FloatingPointMath> (_ x: T) -> T {
+    return ((13 * T.pi / 2 * x).sine) * ( 10 * (x - 1)).powerOfTwo
 }
 
 /**
@@ -575,9 +574,9 @@ private func elasticEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  elasticEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
-    let f =  (-13 * T.pi/2 * (x + 1)).sine
-    let g =  ( -10 * x).powerOfTwo
+private func elasticEaseOut <T: FloatingPointMath> (_ x: T) -> T {
+    let f = (-13 * T.pi / 2 * (x + 1)).sine
+    let g = (-10 * x).powerOfTwo
     return f * g + 1
 }
 
@@ -591,15 +590,15 @@ private func  elasticEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func elasticEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
-    if x < 1/2 {
-        let f = (13 * T.pi/2 * (2 * x)).sine
-        return 1/2 * f * (  (10 * ((2 * x) - 1) ).powerOfTwo  )
+private func elasticEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
+    if x < 1 / 2 {
+        let f = (13 * T.pi / 2 * (2 * x)).sine
+        return 1 / 2 * f * (  (10 * ((2 * x) - 1) ).powerOfTwo  )
     } else {
         let h = (2 * x - 1) + 1
-        let f = (-13 * T.pi/2 * h).sine
+        let f = (-13 * T.pi / 2 * h).sine
         let g = (-10 * (2 * x - 1)).powerOfTwo
-        return 1/2 * (f * g + 2)
+        return 1 / 2 * (f * g + 2)
     }
 }
 
@@ -614,7 +613,7 @@ private func elasticEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func backEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
+private func backEaseIn <T: FloatingPointMath> (_ x: T) -> T {
     return x * x * x - x * (x * T.pi).sine
 }
 
@@ -627,9 +626,9 @@ private func backEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  backEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
+private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
     let f = (1 - x)
-    return 1 - ( f * f * f - f * (f * T.pi).sine )
+    return 1 - ( f * f * f - f * (f * T.pi).sine)
 }
 
 /**
@@ -642,15 +641,15 @@ private func  backEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func backEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
-    if x < 1/2 {
+private func backEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
+    if x < 1 / 2 {
         let f = 2 * x
-        return 1/2 * (f * f * f - f * (f * T.pi).sine )
+        return 1 / 2 * (f * f * f - f * (f * T.pi).sine )
     } else {
         let f = 1 - (2 * x - 1)
         let g = (f * T.pi).sine
         let h = (f * f * f - f *  g  )
-        return 1/2 * (1 - h ) + 1/2
+        return 1 / 2 * (1 - h ) + 1 / 2
     }
 }
 
@@ -663,7 +662,7 @@ private func backEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value
  */
-private func bounceEaseIn <T: FloatingPoint > (_ x: T  ) -> T {
+private func bounceEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return 1 - bounceEaseOut(1 - x)
 }
 
@@ -674,20 +673,20 @@ private func bounceEaseIn <T: FloatingPoint > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value
  */
-private func bounceEaseOut <T: FloatingPoint > (_ x: T  ) -> T {
-    if x < 4/11 {
+private func bounceEaseOut <T: FloatingPoint> (_ x: T) -> T {
+    if x < 4 / 11 {
         return (121 * x * x) / 16
-    } else if x < 8/11 {
-        let f = (363/40 * x * x)
-        let g = (99/10 * x)
-        return f - g + 17/5
-    } else if x < 9/10 {
-        let f = (4356/361 * x * x)
-        let g = (35442/1805 * x)
-        return  f - g + 16061/1805
+    } else if x < 8 / 11 {
+        let f = (363 / 40 * x * x)
+        let g = (99 / 10 * x)
+        return f - g + 17 / 5
+    } else if x < 9 / 10 {
+        let f = (4356 / 361 * x * x)
+        let g = (35442 / 1805 * x)
+        return  f - g + 16061 / 1805
     } else {
-        let f = (54/5 * x * x)
-        return f - (513/25 * x) + 268/25
+        let f = (54 / 5 * x * x)
+        return f - (513 / 25 * x) + 268 / 25
     }
 }
 
@@ -701,11 +700,11 @@ private func bounceEaseOut <T: FloatingPoint > (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value
  */
-private func bounceEaseInOut <T: FloatingPoint > (_ x: T  ) -> T {
-    if x < 1/2 {
-        return 1/2 * bounceEaseIn(x * 2)
+private func bounceEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+    if x < 1 / 2 {
+        return 1 / 2 * bounceEaseIn(x * 2)
     } else {
         let f = bounceEaseOut(x * 2 - 1) + 1/2
-        return 1/2 * f
+        return 1 / 2 * f
     }
 }
