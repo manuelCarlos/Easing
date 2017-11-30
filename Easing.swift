@@ -2,7 +2,7 @@
 //  Easing.swift
 //  
 //
-//  Created by Manuel Lopes on 03/09/2016.
+//  Created by Manuel Lopes on 03.09.2017.
 //
 
 import UIKit
@@ -14,11 +14,11 @@ import UIKit
  */
 public protocol FloatingPointMath: FloatingPoint {
     /// The mathematical sine of a floating-point value.
-    var sine: Self {get}
-    
+    var sine: Self { get }
+
     /// The mathematical cosine of a floating-point value.
-    var cosine: Self {get}
-    
+    var cosine: Self { get }
+
     /**
      The power base 2 of a floating-point value.
      In the next example 'y' has a value of '3.0'.
@@ -28,122 +28,197 @@ public protocol FloatingPointMath: FloatingPoint {
      let p = y.powerOfTwo
      print(p)  // "8.0"
      */
-    var powerOfTwo: Self {get}
+    var powerOfTwo: Self { get }
 }
 
 // MARK: - FloatingPointMath extension for Float.
-extension Float : FloatingPointMath {
-    public var sine : Float { return sin(self) }
-    public var cosine : Float { return cos(self) }
-    public var powerOfTwo: Float { return pow(2, self) }
+
+extension Float: FloatingPointMath {
+
+    public var sine: Float {
+        return sin(self)
+    }
+
+    public var cosine: Float {
+        return cos(self)
+    }
+
+    public var powerOfTwo: Float {
+        return pow(2, self)
+    }
 }
 
 // MARK: - FloatingPointMath extension for Double.
-extension Double : FloatingPointMath {
-    public var sine : Double { return sin(self) }
-    public var cosine : Double { return cos(self) }
-    public var powerOfTwo: Double { return pow(2, self) }
+
+extension Double: FloatingPointMath {
+
+    public var sine: Double {
+        return sin(self)
+    }
+
+    public var cosine: Double {
+        return cos(self)
+    }
+
+    public var powerOfTwo: Double {
+        return pow(2, self)
+    }
 }
 
 // MARK: - FloatingPointMath extension for CGFloat.
-extension CGFloat : FloatingPointMath {
-    public var sine : CGFloat { return sin(self) }
-    public var cosine : CGFloat { return cos(self) }
-    public var powerOfTwo: CGFloat { return pow(2, self) }
+
+extension CGFloat: FloatingPointMath {
+
+    public var sine: CGFloat {
+        return sin(self)
+    }
+
+    public var cosine: CGFloat {
+        return cos(self)
+    }
+
+    public var powerOfTwo: CGFloat {
+        return pow(2, self)
+    }
 }
 
 /// Enum for each type of easing curve.
-public enum Curve < T: FloatingPointMath > {
-    case quadratic, cubic, quartic, quintic, sine, circular, exponential, elastic, back, bounce
-    
+
+public enum Curve <T: FloatingPointMath> {
+    case quadratic
+    case cubic
+    case quartic
+    case quintic
+    case sine
+    case circular
+    case exponential
+    case elastic
+    case back
+    case bounce
+
     /// The ease-in version of the curve.
-    var easeIn: ( T ) -> T { return EasingMode.easeIn.mode(self) }
-    
+    var easeIn: (T) -> T {
+        return EasingMode.easeIn.mode(self)
+    }
+
     // The ease-out version of the curve.
-    var easeOut: ( T ) -> T { return EasingMode.easeOut.mode(self) }
-    
+    var easeOut: (T) -> T {
+        return EasingMode.easeOut.mode(self)
+    }
+
     /// The ease-in-out version of the curve.
-    var easeInOut: ( T ) -> T { return EasingMode.easeInOut.mode(self) }
-    
+    var easeInOut: (T) -> T {
+        return EasingMode.easeInOut.mode(self)
+    }
 }
 
 /// Convenience type to return the corresponding easing function for each curve.
-private enum EasingMode < T: FloatingPointMath > {
+private enum EasingMode <T: FloatingPointMath> {
     case easeIn
     case easeOut
     case easeInOut
-    
-    func mode (_ w: Curve < T > ) -> (T) -> T {
+
+    func mode ( _ w: Curve <T> ) -> (T) -> T {
         switch w {
         case .quadratic:
             switch self {
-            case .easeIn:    return quadraticEaseIn
-            case .easeOut:   return quadraticEaseOut
-            case .easeInOut: return quadraticEaseOut
+            case .easeIn:
+                return quadraticEaseIn
+            case .easeOut:
+                return quadraticEaseOut
+            case .easeInOut:
+                return quadraticEaseOut
             }
         case .cubic:
             switch self {
-            case .easeIn:    return cubicEaseIn
-            case .easeOut:   return cubicEaseOut
-            case .easeInOut: return cubicEaseInOut
+            case .easeIn:
+                return cubicEaseIn
+            case .easeOut:
+                return cubicEaseOut
+            case .easeInOut:
+                return cubicEaseInOut
             }
-            
+
         case .quartic:
             switch self {
-            case .easeIn:    return quarticEaseIn
-            case .easeOut:   return quarticEaseOut
-            case .easeInOut: return quarticEaseInOut
+            case .easeIn:
+                return quarticEaseIn
+            case .easeOut:
+                return quarticEaseOut
+            case .easeInOut:
+                return quarticEaseInOut
             }
-            
+
         case .quintic:
             switch self {
-            case .easeIn:    return quinticEaseIn
-            case .easeOut:   return quinticEaseOut
-            case .easeInOut: return quinticEaseInOut
+            case .easeIn:
+                return quinticEaseIn
+            case .easeOut:
+                return quinticEaseOut
+            case .easeInOut:
+                return quinticEaseInOut
             }
-            
+
         case .sine:
             switch self {
-            case .easeIn:    return sineEaseIn
-            case .easeOut:   return sineEaseOut
-            case .easeInOut: return sineEaseInOut
+            case .easeIn:
+                return sineEaseIn
+            case .easeOut:
+                return sineEaseOut
+            case .easeInOut:
+                return sineEaseInOut
             }
         case .circular:
             switch self {
-            case .easeIn:    return circularEaseIn
-            case .easeOut:   return circularEaseOut
-            case .easeInOut: return circularEaseInOut
+            case .easeIn:
+                return circularEaseIn
+            case .easeOut:
+                return circularEaseOut
+            case .easeInOut:
+                return circularEaseInOut
             }
         case .exponential:
             switch self {
-            case .easeIn:    return exponentialEaseIn
-            case .easeOut:   return exponentialEaseOut
-            case .easeInOut: return exponentialEaseInOut
+            case .easeIn:
+                return exponentialEaseIn
+            case .easeOut:
+                return exponentialEaseOut
+            case .easeInOut:
+                return exponentialEaseInOut
             }
         case .elastic:
             switch self {
-            case .easeIn:    return elasticEaseIn
-            case .easeOut:   return elasticEaseOut
-            case .easeInOut: return elasticEaseInOut
+            case .easeIn:
+                return elasticEaseIn
+            case .easeOut:
+                return elasticEaseOut
+            case .easeInOut:
+                return elasticEaseInOut
             }
-            
+
         case .back:
             switch self {
-            case .easeIn:    return backEaseIn
-            case .easeOut:   return backEaseOut
-            case .easeInOut: return backEaseInOut
+            case .easeIn:
+                return backEaseIn
+            case .easeOut:
+                return backEaseOut
+            case .easeInOut:
+                return backEaseInOut
             }
         case .bounce:
             switch self {
-            case .easeIn:    return bounceEaseIn
-            case .easeOut:   return bounceEaseOut
-            case .easeInOut: return bounceEaseInOut
+            case .easeIn:
+                return bounceEaseIn
+            case .easeOut:
+                return bounceEaseOut
+            case .easeInOut:
+                return bounceEaseInOut
             }
         }
     }
 }
 
-//MARK: - Quadratic
+// MARK: - Quadratic
 
 /**
  Returns a floating-point value part of a **Quadratic Ease-In**  rate of change of a parameter over time.
@@ -181,16 +256,15 @@ private func quadraticEaseOut <T: FloatingPoint> (_ x: T) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func quadraticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
+private func quadraticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 1/2 {
         return 2 * x * x
-    }
-    else{
+    } else {
         return (-2 * x * x) + (4 * x) - 1
     }
 }
 
-//MARK: -  Cubic
+// MARK: - Cubic
 
 /**
  Returns a floating-point value part of a **Cubic Ease-In**  rate of change of a parameter over time.
@@ -201,7 +275,7 @@ private func quadraticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  cubicEaseIn <T: FloatingPoint> (_ x: T  ) -> T {
+private func cubicEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return x * x * x
 }
 
@@ -214,7 +288,7 @@ private func  cubicEaseIn <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func cubicEaseOut <T: FloatingPoint> (_ x: T  ) -> T {
+private func cubicEaseOut <T: FloatingPoint> (_ x: T) -> T {
     let p = x - 1
     return  p * p * p + 1
 }
@@ -229,17 +303,16 @@ private func cubicEaseOut <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func cubicEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
+private func cubicEaseInOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 1/2 {
         return 4 * x * x * x
-    }
-    else{
+    } else {
         let f = ((2 * x) - 2)
         return 1/2 * f * f * f + 1
     }
 }
 
-// MARK:- Quartic
+// MARK: - Quartic
 
 /**
  Returns a floating-point value part of a **Quartic Ease-In**  rate of change of a parameter over time.
@@ -250,7 +323,7 @@ private func cubicEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  quarticEaseIn <T: FloatingPoint> (_ x: T  ) -> T {
+private func quarticEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return x * x * x * x
 }
 
@@ -263,7 +336,7 @@ private func  quarticEaseIn <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func  quarticEaseOut <T: FloatingPoint> (_ x: T  ) -> T {
+private func quarticEaseOut <T: FloatingPoint> (_ x: T) -> T {
     let f = x - 1
     return f * f * f * (1 - x) + 1
 }
@@ -278,18 +351,17 @@ private func  quarticEaseOut <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func quarticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
-    
+private func quarticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+
     if x < 1/2 {
         return 8 * x * x * x * x
-    }
-    else{
+    } else {
         let f = (x - 1)
         return -8 * f * f * f * f + 1
     }
 }
 
-//MARK:- Quintic
+// MARK: - Quintic
 
 /**
  Returns a floating-point value part of a **Quintic Ease-In**  rate of change of a parameter over time.
@@ -300,7 +372,7 @@ private func quarticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func quinticEaseIn <T: FloatingPoint> (_ x: T  ) -> T {
+private func quinticEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return x * x * x * x * x
 }
 
@@ -313,8 +385,7 @@ private func quinticEaseIn <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func quinticEaseOut <T: FloatingPoint> (_ x: T  ) -> T {
-    
+private func quinticEaseOut <T: FloatingPoint> (_ x: T) -> T {
     let f = (x - 1)
     return f * f * f * f * f + 1
 }
@@ -329,17 +400,16 @@ private func quinticEaseOut <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
+private func quinticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 1/2 {
         return 16 * x * x * x * x * x
-    }
-    else{
+    } else {
         let f = ((2 * x) - 2)
         return  1/2 * f * f * f * f * f + 1
     }
 }
 
-//MARK:- Sine
+// MARK: - Sine
 
 /**
  Returns a floating-point value part of a **Sine Ease-In**  rate of change of a parameter over time.
@@ -350,7 +420,7 @@ private func quinticEaseInOut <T: FloatingPoint> (_ x: T  ) -> T {
  - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
  - Returns: A floating-point value.
  */
-private func sineEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
+private func sineEaseIn <T: FloatingPointMath> (_ x: T) -> T {
     return ( ((x - 1) * T.pi/2).sine ) + 1
 }
 
@@ -380,7 +450,7 @@ private func sineEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
     return 1/2 * (1 - (x * T.pi).cosine)
 }
 
-//MARK:- Circular
+// MARK: - Circular
 
 /**
  Returns a floating-point value part of a **Circular Ease-In**  rate of change of a parameter over time.
@@ -409,7 +479,6 @@ private func  circularEaseOut <T: FloatingPoint > (_ x: T  ) -> T {
     return sqrt((2 - x) * x)
 }
 
-
 /**
  Returns a floating-point value part of a **Circular Ease-InOut**  rate of change of a parameter over time.
  
@@ -424,15 +493,14 @@ private func  circularEaseInOut <T: FloatingPoint > (_ x: T  ) -> T {
     if x < 1/2 {
         let h = 1 - sqrt(1 - 4 * (x * x))
         return 1/2 * h
-    }
-    else{
+    } else {
         let f = -((2 * x) - 3) * ((2 * x) - 1)
         let g = sqrt( f )
         return 1/2 * ( g + 1 )
     }
 }
 
-//MARK:- Exponencial
+// MARK: - Exponencial
 
 /**
  Returns a floating-point value part of an **Exponencial Ease-In**  rate of change of a parameter over time.
@@ -462,7 +530,6 @@ private func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
     return (x == 1) ? x : 1 - ( (-10 * x).powerOfTwo )
 }
 
-
 /**
  Returns a floating-point value part of a **Exponencial Ease-InOut**  rate of change of a parameter over time.
  
@@ -475,18 +542,16 @@ private func  exponentialEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
  */
 private func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
     if x == 0 || x == 1 { return x }
-    
+
     if x < 1/2 {
         return 1/2 * (  ((20 * x) - 10).powerOfTwo  )
-    }
-    else{
+    } else {
         let h = ((-20 * x) + 10).powerOfTwo
         return -1/2 * h + 1
     }
 }
 
-
-//MARK:- Elastic
+// MARK: - Elastic
 
 /**
  Returns a floating-point value part of an **Elastic Ease-In**  rate of change of a parameter over time.
@@ -500,7 +565,6 @@ private func  exponentialEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
 private func elasticEaseIn <T: FloatingPointMath > (_ x: T  ) -> T {
     return ( (13 * T.pi/2 * x).sine) * ( 10 * (x - 1)).powerOfTwo
 }
-
 
 /**
  Returns a floating-point value part of an **Elastic Ease-Out**  rate of change of a parameter over time.
@@ -517,7 +581,6 @@ private func  elasticEaseOut <T: FloatingPointMath > (_ x: T  ) -> T {
     return f * g + 1
 }
 
-
 /**
  Returns a floating-point value part of an **Elastic Ease-InOut**  rate of change of a parameter over time.
  
@@ -532,8 +595,7 @@ private func elasticEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
     if x < 1/2 {
         let f = (13 * T.pi/2 * (2 * x)).sine
         return 1/2 * f * (  (10 * ((2 * x) - 1) ).powerOfTwo  )
-    }
-    else{
+    } else {
         let h = (2 * x - 1) + 1
         let f = (-13 * T.pi/2 * h).sine
         let g = (-10 * (2 * x - 1)).powerOfTwo
@@ -541,7 +603,7 @@ private func elasticEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
     }
 }
 
-//MARK:- Back
+// MARK: - Back
 
 /**
  Returns a floating-point value part of a **Back Ease-In** rate of change of a parameter over time.
@@ -584,9 +646,7 @@ private func backEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
     if x < 1/2 {
         let f = 2 * x
         return 1/2 * (f * f * f - f * (f * T.pi).sine )
-    }
-    else
-    {
+    } else {
         let f = 1 - (2 * x - 1)
         let g = (f * T.pi).sine
         let h = (f * f * f - f *  g  )
@@ -594,7 +654,7 @@ private func backEaseInOut <T: FloatingPointMath > (_ x: T  ) -> T {
     }
 }
 
-//MARK: -  Bounce
+// MARK: - Bounce
 
 /**
  Returns a floating-point value part of a **Bounce Ease-In** rate of change of a parameter over time.
@@ -617,18 +677,15 @@ private func bounceEaseIn <T: FloatingPoint > (_ x: T  ) -> T {
 private func bounceEaseOut <T: FloatingPoint > (_ x: T  ) -> T {
     if x < 4/11 {
         return (121 * x * x) / 16
-    }
-    else if x < 8/11 {
+    } else if x < 8/11 {
         let f = (363/40 * x * x)
         let g = (99/10 * x)
         return f - g + 17/5
-    }
-    else if x < 9/10 {
+    } else if x < 9/10 {
         let f = (4356/361 * x * x)
         let g = (35442/1805 * x)
         return  f - g + 16061/1805
-    }
-    else{
+    } else {
         let f = (54/5 * x * x)
         return f - (513/25 * x) + 268/25
     }
@@ -647,8 +704,7 @@ private func bounceEaseOut <T: FloatingPoint > (_ x: T  ) -> T {
 private func bounceEaseInOut <T: FloatingPoint > (_ x: T  ) -> T {
     if x < 1/2 {
         return 1/2 * bounceEaseIn(x * 2)
-    }
-    else{
+    } else {
         let f = bounceEaseOut(x * 2 - 1) + 1/2
         return 1/2 * f
     }
