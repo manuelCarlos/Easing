@@ -48,6 +48,3 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 <p align="center">
    <img src="http://manuelcarlos.github.io/assets/img/easing.jpeg" >
 </p>
-
-
- **Please note** : This code was written for Swift 3. Older versions of Swift are currently not supported.
