@@ -26,9 +26,34 @@ Supported argument types:
 - Double
 - CGFloat
 
+### Instalation 
+
+#### Swift Package Manager (macOS only)
+Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
+
+     // swift-tools-version:4.0
+
+     import PackageDescription
+
+     let package = Package(
+         name: "MyAwsomeProject",
+         dependencies: [
+              .package(url: "https://github.com/manuelCarlos/Easing.git", .branch("feature/SPMIntegration"))
+              ],
+         targets: [
+             .target(
+                name: "MyAwsomeProject",
+                dependencies: ["Easing"]),
+         ]
+    )
+
+
+
+#### Manually
+Add the file *Easing.swift* to your project and you are ready to go.
+
 ### Usage
 
-Add the file *Easing.swift* to your project and you are ready to go.
 The *Curve* type allows access to all the different functions, for example:
 
     let x: Float = 0.3
