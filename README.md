@@ -75,6 +75,6 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 ### HEAD
 
-### 0.0.4 (2018-03-21)
+### 0.0.5 (2018-03-21)
 
 - Add inital SPM package preparation
