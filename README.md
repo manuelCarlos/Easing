@@ -26,9 +26,10 @@ Supported argument types:
 - Double
 - CGFloat
 
-### Instalation 
+### Instalation
 
 #### Swift Package Manager (macOS only)
+
 Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
 
      // swift-tools-version:4.0
@@ -36,19 +37,20 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
      import PackageDescription
 
      let package = Package(
-         name: "MyAwsomeProject",
-         dependencies: [
+        name: "MyAwsomeProject",
+        dependencies: [
               .package(url: "https://github.com/manuelCarlos/Easing.git", .branch("feature/SPMIntegration"))
-              ],
-         targets: [
-             .target(
-                name: "MyAwsomeProject",
-                dependencies: ["Easing"]),
-         ]
+        ],
+        targets: [
+            .target(
+               name: "MyAwsomeProject",
+               dependencies: ["Easing"])
+        ]
     )
 
 
 #### Manually
+
 Add the file *Easing.swift* to your project and you are ready to go.
 
 ### Usage
@@ -68,3 +70,11 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 <p align="center">
    <img src="http://manuelcarlos.github.io/assets/img/easing.jpeg">
 </p>
+
+## Changelog
+
+### HEAD
+
+### 0.0.4 (2018-03-21)
+
+- Add inital SPM package preparation
