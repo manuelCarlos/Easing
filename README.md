@@ -48,7 +48,6 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
     )
 
 
-
 #### Manually
 Add the file *Easing.swift* to your project and you are ready to go.
 
