@@ -3,8 +3,10 @@
 //
 //  Created by Manuel Lopes on 03.09.2017.
 //
+// swiftlint:disable identifier_name
+// swiftlint:disable file_length
 
-import UIKit
+import Foundation
 
 /**
  The `FloatingPointMath` protocol declares 3 mathematical operations that
@@ -64,23 +66,6 @@ extension Double: FloatingPointMath {
     }
 }
 
-// MARK: - FloatingPointMath extension for CGFloat.
-
-extension CGFloat: FloatingPointMath {
-
-    public var sine: CGFloat {
-        return sin(self)
-    }
-
-    public var cosine: CGFloat {
-        return cos(self)
-    }
-
-    public var powerOfTwo: CGFloat {
-        return pow(2, self)
-    }
-}
-
 /// Enum for each type of easing curve.
 
 public enum Curve <T: FloatingPointMath> {
@@ -96,17 +81,17 @@ public enum Curve <T: FloatingPointMath> {
     case bounce
 
     /// The ease-in version of the curve.
-    var easeIn: (T) -> T {
+    public var easeIn: (T) -> T {
         return EasingMode.easeIn.mode(self)
     }
 
     // The ease-out version of the curve.
-    var easeOut: (T) -> T {
+    public var easeOut: (T) -> T {
         return EasingMode.easeOut.mode(self)
     }
 
     /// The ease-in-out version of the curve.
-    var easeInOut: (T) -> T {
+    public var easeInOut: (T) -> T {
         return EasingMode.easeInOut.mode(self)
     }
 }
@@ -117,7 +102,7 @@ private enum EasingMode <T: FloatingPointMath> {
     case easeOut
     case easeInOut
 
-    func mode ( _ w: Curve <T> ) -> (T) -> T {
+    func mode ( _ w: Curve <T> ) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
         switch w {
         case .quadratic:
             switch self {
@@ -677,16 +662,16 @@ private func bounceEaseOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 4 / 11 {
         return (121 * x * x) / 16
     } else if x < 8 / 11 {
-        let f = (363 / 40 * x * x)
-        let g = (99 / 10 * x)
-        return f - g + 17 / 5
+        let f = (363 / 40) * x * x
+        let g = (99 / 10) * x
+        return f - g + (17 / 5)
     } else if x < 9 / 10 {
-        let f = (4356 / 361 * x * x)
-        let g = (35442 / 1805 * x)
-        return  f - g + 16061 / 1805
+        let f = (4356 / 361) * x * x
+        let g = (35442 / 1805) * x
+        return  f - g + (16061 / 1805)
     } else {
-        let f = (54 / 5 * x * x)
-        return f - (513 / 25 * x) + 268 / 25
+        let f = (54 / 5) * x * x
+        return f - ((513 / 25) * x) + 268 / 25
     }
 }
 
@@ -704,7 +689,7 @@ private func bounceEaseInOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 1 / 2 {
         return 1 / 2 * bounceEaseIn(x * 2)
     } else {
-        let f = bounceEaseOut(x * 2 - 1) + 1/2
+        let f = bounceEaseOut(x * 2 - 1) + 1
         return 1 / 2 * f
     }
 }
