@@ -28,8 +28,8 @@ Supported argument types:
  - CGFloat
 
 
-
 ### Usage
+
 Add the file *Easing.swift* to your project and you are ready to go.
 The *Curve* type allows access to all the different functions, for example:
 
@@ -48,3 +48,7 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 <p align="center">
    <img src="http://manuelcarlos.github.io/assets/img/easing.jpeg" >
 </p>
+
+## Note:
+
+You'll find a Swift Package Manager ready version in the `feature/SPMIntegration` branch.
