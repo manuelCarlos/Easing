@@ -49,6 +49,12 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
    <img src="http://manuelcarlos.github.io/assets/img/easing.jpeg" >
 </p>
 
-## Note:
+### Note: Swift Package Manager support
 
-You'll find a Swift Package Manager ready version in the `feature/SPMIntegration` branch.
+You'll find a SPM ready version in the `feature/SPMIntegration` branch.
+
+#### Quickly generate an Xcode project
+
+To generate an `Easing.xcodeproj`from the project's `Package.swift`, be sure to have the Swift compiler installed and `Swift` added to your $PATH, then run this on a terminal:
+
+`swift package generate-xcodeproj`
