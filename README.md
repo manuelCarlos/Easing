@@ -45,8 +45,8 @@ The *Curve* type allows access to all the different functions, for example:
 Here's an example of the use of the elastic ease-in-out function in an array of 75 points in the [0, 1] interval.
 
 
-<p align="center">
-   <img src="http://manuelcarlos.github.io/assets/img/easing.jpeg" >
+<p align="center">https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg
+   <img src="" >
 </p>
 
 ### Swift Package Manager support
