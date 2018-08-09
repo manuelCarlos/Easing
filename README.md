@@ -58,7 +58,7 @@ You'll find a SPM ready version in the `feature/SPMIntegration` branch.
     
      (In order to generate an `Easing.xcodeproj`from the project's `Package.swift`, be sure to have the Swift compiler installed and `Swift` added to your $PATH)
 
-    - To quickly run the tests:
+  - To quickly run the tests:
     
     `swift test`
     
