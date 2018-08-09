@@ -96,6 +96,8 @@ public enum Curve <T: FloatingPointMath> {
     }
 }
 
+// MARK: - Private
+
 /// Convenience type to return the corresponding easing function for each curve.
 private enum EasingMode <T: FloatingPointMath> {
     case easeIn
@@ -204,44 +206,40 @@ private enum EasingMode <T: FloatingPointMath> {
 
 // MARK: - Quadratic
 
-/**
- Returns a floating-point value part of a **Quadratic Ease-In**  rate of change of a parameter over time.
- 
- Modeled after the function:
- 
- y = x^2
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1
- - Returns: A floating-point.
- */
+/// Returns a FloatingPoint value part of a **Quadratic Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after the function:
+///
+/// y = x^2
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1
+/// - Returns: A FloatingPoint value.
 private func quadraticEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return x * x
 }
 
-/**
- Returns a floating-point value part of a **Quadratic Ease-Out**  rate of change of a parameter over time.
- 
- Modeled after the Parabola:
- 
- y = -x^2 + 2x
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quadratic Ease-Out**  rate of change of a parameter over time.
+///
+/// Modelled after the Parabola:
+///
+/// y = -x^2 + 2x
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quadraticEaseOut <T: FloatingPoint> (_ x: T) -> T {
-    return -(x * (x - 2))
+    return -x * (x - 2)
 }
 
-/**
- Returns a floating-point value part of a **Quadratic Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after the piecewise quadratic:
- 
- y = (1/2)((2x)^2)              [0, 0.5)
- y = -(1/2)((2x-1)*(2x-3) - 1)  [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quadratic Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise quadratic:
+///
+/// y = (1/2)((2x)^2)              [0, 0.5[
+/// y = -(1/2)((2x-1)*(2x-3) - 1)  [0.5, 1]
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quadraticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
-    if x < 1/2 {
+    if x < 1 / 2 {
         return 2 * x * x
     } else {
         return (-2 * x * x) + (4 * x) - 1
@@ -250,414 +248,389 @@ private func quadraticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
 
 // MARK: - Cubic
 
-/**
- Returns a floating-point value part of a **Cubic Ease-In**  rate of change of a parameter over time.
- 
- Modeled after the cubic function:
- 
- y = x^3
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Cubic Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after the cubic function:
+///
+/// y = x^3
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func cubicEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return x * x * x
 }
 
-/**
- Returns a floating-point value part of a **Cubic Ease-Out**  rate of change of a parameter over time.
- 
- Modeled after the cubic function:
- 
- y = (x - 1)^3 + 1
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Cubic Ease-Out**  rate of change of a parameter over time.
+///
+/// Modelled after the cubic function:
+///
+/// y = (x - 1)^3 + 1
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func cubicEaseOut <T: FloatingPoint> (_ x: T) -> T {
     let p = x - 1
     return  p * p * p + 1
 }
 
-/**
- Returns a floating-point value part of a **Cubic Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after the piecewise cubic function:
- 
- y = 1/2 * ((2x)^3)       in  [0, 0.5]
- y = 1/2 * ((2x-2)^3 + 2) in  [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Cubic Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise cubic function:
+///
+/// y = 1/2 * ((2x)^3)       in  [0, 0.5[
+/// y = 1/2 * ((2x-2)^3 + 2) in  [0.5, 1]
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func cubicEaseInOut <T: FloatingPoint> (_ x: T) -> T {
-    if x < 1/2 {
+    if x < 1 / 2 {
         return 4 * x * x * x
     } else {
-        let f = ((2 * x) - 2)
-        return 1/2 * f * f * f + 1
+        let f = 2 * x - 2
+        return 1 / 2 * f * f * f + 1
     }
 }
 
 // MARK: - Quartic
 
-/**
- Returns a floating-point value part of a **Quartic Ease-In**  rate of change of a parameter over time.
- 
- Modeled after the quartic function:
- 
- y =  x^4
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quartic Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after the quartic function:
+///
+/// y =  x^4
+///
+/// - Parameter x: The FloatingPointvalue for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quarticEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return x * x * x * x
 }
 
-/**
- Returns a floating-point value part of a **Quartic Ease-Out** rate of change of a parameter over time.
- 
- Modeled after the quartic function:
- 
- y = 1 - (x - 1)^4
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quartic Ease-Out** rate of change of a parameter over time.
+///
+/// Modelled after the quartic function:
+///
+/// y = 1 - (x - 1)^4
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quarticEaseOut <T: FloatingPoint> (_ x: T) -> T {
     let f = x - 1
     return f * f * f * (1 - x) + 1
 }
 
-/**
- Returns a floating-point value part of a **Quartic Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after the piecewise quartic function:
- 
- y = (1/2)((2x)^4)        in [0, 0.5]
- y = -(1/2)((2x-2)^4 - 2) in [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quartic Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise quartic function:
+///
+/// y = (1/2)((2x)^4)        in [0, 0.5[
+/// y = -(1/2)((2x-2)^4 - 2) in [0.5, 1]
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quarticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
-
-    if x < 1/2 {
+    if x < 1 / 2 {
         return 8 * x * x * x * x
     } else {
-        let f = (x - 1)
+        let f = x - 1
         return -8 * f * f * f * f + 1
     }
 }
 
 // MARK: - Quintic
 
-/**
- Returns a floating-point value part of a **Quintic Ease-In**  rate of change of a parameter over time.
- 
- Modeled after the quintic function:
- 
- y = x^5
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quintic Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after the quintic function:
+///
+/// y = x^5
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quinticEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return x * x * x * x * x
 }
 
-/**
- Returns a floating-point value part of a **Quintic Ease-Out**  rate of change of a parameter over time.
- 
- Modeled after the quintic function:
- 
- y = (x - 1)^5 + 1
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quintic Ease-Out**  rate of change of a parameter over time.
+///
+/// Modelled after the quintic function:
+///
+/// y = (x - 1)^5 + 1
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quinticEaseOut <T: FloatingPoint> (_ x: T) -> T {
-    let f = (x - 1)
+    let f = x - 1
     return f * f * f * f * f + 1
 }
 
-/**
- Returns a floating-point value part of a **Quintic Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after the piecewise quintic function:
- 
- y = 1/2 * ((2x)^5)       in [0, 0.5]
- y = 1/2 * ((2x-2)^5 + 2) in [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Quintic Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise quintic function:
+///
+/// y = 1/2 * ((2x)^5)       in [0, 0.5[
+/// y = 1/2 * ((2x-2)^5 + 2) in [0.5, 1]
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func quinticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
-    if x < 1/2 {
+    if x < 1 / 2 {
         return 16 * x * x * x * x * x
     } else {
-        let f = ((2 * x) - 2)
-        return  1/2 * f * f * f * f * f + 1
+        let f = 2 * x - 2
+        return 1 / 2 * f * f * f * f * f + 1
     }
 }
 
 // MARK: - Sine
 
-/**
- Returns a floating-point value part of a **Sine Ease-In**  rate of change of a parameter over time.
- 
- Modeled after the function:
- 
- y = sin( (x - 1) * pi/2 ) + 1
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a floating-point value part of a **Sine Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after the function:
+///
+/// y = sin((x-1) * pi/2) + 1
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func sineEaseIn <T: FloatingPointMath> (_ x: T) -> T {
-    return ( ((x - 1) * T.pi/2).sine ) + 1
+    return ((x - 1) * T.pi / 2).sine + 1
 }
 
-/**
- Returns a floating-point value part of a **Sine Ease-Out**  rate of change of a parameter over time.
- 
- Modeled after the function:
- 
- y = sin( x * pi/2 )
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Sine Ease-Out**  rate of change of a parameter over time.
+///
+/// Modelled after the function:
+///
+/// y = sin(x * pi/2)
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func sineEaseOut <T: FloatingPointMath > (_ x: T) -> T {
     return (x * T.pi / 2).sine
 }
 
-/**
- Returns a floating-point value part of a **Sine Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after the function:
- 
- y = 1/2 * ( cos(x * pi) - 1)
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a floating-point value part of a **Sine Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after the function:
+///
+/// y = 1/2 * (cos(x * pi) - 1)
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func sineEaseInOut <T: FloatingPointMath > (_ x: T) -> T {
     return 1 / 2 * (1 - (x * T.pi).cosine)
 }
 
 // MARK: - Circular
 
-/**
- Returns a floating-point value part of a **Circular Ease-In**  rate of change of a parameter over time.
- 
- Modeled after:
- 
- y = 1 - sqrt(1-(x^2))
- 
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a floating-point value part of a **Circular Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after:
+///
+/// y = 1 - sqrt(1-(x^2))
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func circularEaseIn <T: FloatingPoint > (_ x: T) -> T {
-    return 1 - sqrt(1 - (x * x))
+    return 1 - sqrt(1 - x * x)
 }
 
-/**
- Returns a floating-point value part of a **Circular Ease-Out**  rate of change of a parameter over time.
- 
- Modeled after:
- 
- y =  sqrt((2 - x) * x)
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Circular Ease-Out**  rate of change of a parameter over time.
+///
+/// Modelled after:
+///
+/// y =  sqrt((2 - x) * x)
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func circularEaseOut <T: FloatingPoint > (_ x: T) -> T {
     return sqrt((2 - x) * x)
 }
 
-/**
- Returns a floating-point value part of a **Circular Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after the piecewise circular function:
- 
- y = (1/2)(1 - sqrt(1 - 4x^2))           in [0, 0.5)
- y = (1/2)(sqrt(-(2x - 3)*(2x - 1)) + 1) in [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Circular Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise circular function:
+///
+/// y = (1/2)(1 - sqrt(1 - 4x^2))           in [0, 0.5[
+/// y = (1/2)(sqrt(-(2x - 3)*(2x - 1)) + 1) in [0.5, 1]
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func circularEaseInOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 1 / 2 {
-        let h = 1 - sqrt(1 - 4 * (x * x))
+        let h = 1 - sqrt(1 - 4 * x * x)
         return 1 / 2 * h
     } else {
-        let f = -((2 * x) - 3) * ((2 * x) - 1)
-        let g = sqrt( f )
-        return 1 / 2 * ( g + 1 )
+        let f = -(2 * x - 3) * (2 * x - 1)
+        let g = sqrt(f)
+        return 1 / 2 * (g + 1)
     }
 }
 
 // MARK: - Exponencial
 
-/**
- Returns a floating-point value part of an **Exponencial Ease-In**  rate of change of a parameter over time.
- 
- Modeled after the piecewise function:
- 
- y = x when x == 0
- y = 2^(10(x - 1)) in ]0, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of an **Exponencial Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise function:
+///
+/// y = x when x == 0
+/// y = 2^(10(x - 1)) in ]0, 1]
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func exponentialEaseIn <T: FloatingPointMath> (_ x: T) -> T {
-    return (x == 0) ? x :  ( 10 * (x - 1) ).powerOfTwo
+    return x == 0 ? x : (10 * (x - 1)).powerOfTwo
 }
 
-/**
- Returns a floating-point value part of an **Exponencial Ease-Out**  rate of change of a parameter over time.
- 
- Modeled after the piecewise function:
- 
- y = x when x == 1
- y = -2^(-10x) + 1 in [0, 1[
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a floating-point value part of an **Exponencial Ease-Out**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise function:
+///
+/// y = x when x == 1
+/// y = -2^(-10x) + 1 in [0, 1[
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func exponentialEaseOut <T: FloatingPointMath> (_ x: T) -> T {
-    return (x == 1) ? x : 1 - ( (-10 * x).powerOfTwo )
+    return x == 1 ? x : 1 - (-10 * x).powerOfTwo
 }
 
-/**
- Returns a floating-point value part of a **Exponencial Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after the piecewise function:
- 
- y = 1/2 * 2^(10(2x - 1))        in [0.0, 0.5)
- y = -1/2 * 2^(-10(2x - 1))) + 1 in [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a floating-point value part of a **Exponencial Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after the piecewise function:
+///
+/// y = x when x == 0 or x == 1
+/// y = 1/2 * 2^(10(2x - 1))        in ]0.0, 0.5[
+/// y = -1/2 * 2^(-10(2x - 1))) + 1 in [0.5, 1[
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func exponentialEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
-    if x == 0 || x == 1 { return x }
+    if x == 0 || x == 1 {
+        return x
+    }
 
     if x < 1 / 2 {
-        return 1 / 2 * (  ((20 * x) - 10).powerOfTwo  )
+        return 1 / 2 * (20 * x - 10).powerOfTwo
     } else {
-        let h = ((-20 * x) + 10).powerOfTwo
+        let h = (-20 * x + 10).powerOfTwo
         return -1 / 2 * h + 1
     }
 }
 
 // MARK: - Elastic
 
-/**
- Returns a floating-point value part of an **Elastic Ease-In**  rate of change of a parameter over time.
- 
- Modeled after the damped sine wave:
- 
- y = sin(13 pi / 2 * x) * pow(2, 10 * (x - 1))
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of an **Elastic Ease-In**  rate of change of a parameter over time.
+///
+/// Modelled after the damped sine wave:
+///
+/// y = sin(13 pi / 2 * x) * pow(2, 10 * (x - 1))
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func elasticEaseIn <T: FloatingPointMath> (_ x: T) -> T {
-    return ((13 * T.pi / 2 * x).sine) * ( 10 * (x - 1)).powerOfTwo
+    return (13 * T.pi / 2 * x).sine * (10 * (x - 1)).powerOfTwo
 }
 
-/**
- Returns a floating-point value part of an **Elastic Ease-Out**  rate of change of a parameter over time.
- 
- Modeled after the damped sine wave:
- 
- y = sin(-13 pi/2 * (x + 1)) * pow(2, -10x) + 1
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of an **Elastic Ease-Out**  rate of change of a parameter over time.
+///
+/// Modelled after the damped sine wave:
+///
+/// y = sin(-13 pi/2 * (x + 1)) * pow(2, -10x) + 1
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func elasticEaseOut <T: FloatingPointMath> (_ x: T) -> T {
     let f = (-13 * T.pi / 2 * (x + 1)).sine
     let g = (-10 * x).powerOfTwo
     return f * g + 1
 }
 
-/**
- Returns a floating-point value part of an **Elastic Ease-InOut**  rate of change of a parameter over time.
- 
- Modeled after piecewise exponentially-damped sine wave:
- 
- y = 1/2 * sin(13pi/2*(2*x)) * pow(2, 10 * ((2*x) - 1))        in  [0,0.5)
- y = 1/2 * (sin(-13pi/2*((2x-1)+1)) * pow(2,-10(2*x-1)) + 2) in  [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of an **Elastic Ease-InOut**  rate of change of a parameter over time.
+///
+/// Modelled after piecewise exponentially-damped sine wave:
+///
+/// y = 1/2 * sin(13pi/4*x) * pow(2, 10 * ((2*x) - 1))          in  [0,0.5[
+/// y = 1/2 * (sin(-13pi/2*((2x-1)+1)) * pow(2,-10(2*x-1)) + 2) in  [0.5, 1]
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func elasticEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
-        let f = (13 * T.pi / 2 * (2 * x)).sine
-        return 1 / 2 * f * (  (10 * ((2 * x) - 1) ).powerOfTwo  )
+        let f = (13 * T.pi / 4 * x).sine
+        return 1 / 2 * f * (10 * ((2 * x) - 1)).powerOfTwo
     } else {
         let h = (2 * x - 1) + 1
         let f = (-13 * T.pi / 2 * h).sine
-        let g = (-10 * (2 * x - 1)).powerOfTwo
+        let g = (-10 * 2 * x - 1).powerOfTwo
         return 1 / 2 * (f * g + 2)
     }
 }
 
 // MARK: - Back
 
-/**
- Returns a floating-point value part of a **Back Ease-In** rate of change of a parameter over time.
- 
- Modeled after the cubic function:
- 
- y = x^3-x * sin(x*pi)
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Back Ease-In** rate of change of a parameter over time.
+///
+/// Modelled after the cubic function:
+///
+/// y = x^3-x * sin(x*pi)
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func backEaseIn <T: FloatingPointMath> (_ x: T) -> T {
     return x * x * x - x * (x * T.pi).sine
 }
 
-/**
- Returns a floating-point value part of a **Back Ease-Out** rate of change of a parameter over time.
- 
- Modeled after the cubic function:
- 
- y = 1-((1-x)^3-(1-x)*sin((1-x)*pi))
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Back Ease-Out** rate of change of a parameter over time.
+///
+/// Modelled after the cubic function:
+///
+/// y = 1-((1-x)^3-(1-x)*sin((1-x)*pi))
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
-    let f = (1 - x)
+    let f = 1 - x
     return 1 - ( f * f * f - f * (f * T.pi).sine)
 }
 
-/**
- Returns a floating-point value part of a **Back Ease-InOut** rate of change of a parameter over time.
- 
- Modeled after the piecewise cubic function:
- 
- y = 1/2 * ((2x)^3-(2x)*sin(2*x*pi))           in [0, 0.5)
- y = 1/2 * (1-((1-x)^3-(1-x)*sin((1-x)*pi))+1) in [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value.
- */
+/// Returns a FloatingPoint value part of a **Back Ease-InOut** rate of change of a parameter over time.
+///
+/// Modelled after the piecewise cubic function:
+///
+/// y = 1/2 * ((2x)^3-(2x)*sin(2*x*pi))                             in [0, 0.5[
+/// y = 1/2 * 1-((1-(2*x-1))^3-(1-(2*x-1))*(sin(1-(2*x-1)*pi)))+1/2 in [0.5, 1]
+///
+/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func backEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
         let f = 2 * x
-        return 1 / 2 * (f * f * f - f * (f * T.pi).sine )
+        return 1 / 2 * f * f * f - f * (f * T.pi).sine
     } else {
         let f = 1 - (2 * x - 1)
         let g = (f * T.pi).sine
-        let h = (f * f * f - f *  g  )
+        let h = f * f * f - f * g
         return 1 / 2 * (1 - h ) + 1 / 2
     }
 }
 
 // MARK: - Bounce
 
-/**
- Returns a floating-point value part of a **Bounce Ease-In** rate of change of a parameter over time.
- 
- Modeled using the  'bounceEaseOut' function.
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value
- */
+/// Returns a FloatingPoint value part of a **Bounce Ease-In** rate of change of a parameter over time.
+///
+/// Modelled using the 'bounceEaseOut' function.
+///
+/// - Parameter x: A FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func bounceEaseIn <T: FloatingPoint> (_ x: T) -> T {
     return 1 - bounceEaseOut(1 - x)
 }
 
-/**
- Returns a floating-point value part of a **Bounce Ease-Out** rate of change of a parameter over time.
- 
- Modeled using the mother of all bumpy piecewise functions:
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value
- */
+/// Returns a FloatingPoint value part of a **Bounce Ease-Out** rate of change of a parameter over time.
+///
+/// Modelled using the mother of all bumpy piecewise functions.
+///
+/// - Parameter x: A FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func bounceEaseOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 4 / 11 {
         return (121 * x * x) / 16
@@ -668,26 +641,25 @@ private func bounceEaseOut <T: FloatingPoint> (_ x: T) -> T {
     } else if x < 9 / 10 {
         let f = (4356 / 361) * x * x
         let g = (35442 / 1805) * x
-        return  f - g + (16061 / 1805)
+        return  f - g + 16061 / 1805
     } else {
         let f = (54 / 5) * x * x
         return f - ((513 / 25) * x) + 268 / 25
     }
 }
 
-/**
- Returns a floating-point value part of a **Bounce Ease-InOut** rate of change of a parameter over time.
- 
- Modeled using the piecewise function:
- 
- y = 1/2 * bounceEaseIn(2x)               in [0, 0.5]
- y = 1/2 * bounceEaseOut(x * 2 - 1) + 1/2 in [0.5, 1]
- - Parameter x: The  floating-point value for the time axis of the function, typically 0 <= x <= 1.
- - Returns: A floating-point value
- */
+/// Returns a FloatingPoint value part of a **Bounce Ease-InOut** rate of change of a parameter over time.
+///
+/// Modelled using the piecewise function:
+///
+/// y = 1/2 * bounceEaseIn(2x)               in [0, 0.5[
+/// y = 1/2 * bounceEaseOut(x * 2 - 1) + 1   in [0.5, 1]
+///
+/// - Parameter x: A FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A FloatingPoint value.
 private func bounceEaseInOut <T: FloatingPoint> (_ x: T) -> T {
     if x < 1 / 2 {
-        return 1 / 2 * bounceEaseIn(x * 2)
+        return 1 / 2 * bounceEaseIn(2 * x)
     } else {
         let f = bounceEaseOut(x * 2 - 1) + 1
         return 1 / 2 * f
