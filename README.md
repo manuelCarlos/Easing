@@ -52,8 +52,13 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 You'll find a SPM ready version in the `feature/SPMIntegration` branch.
 
-#### Quickly generate an Xcode project
+  - To quickly generate a Xcode project, navigate to the project folder in the terminal and run: 
+  
+    `swift package generate-xcodeproj`
+    
+     (In order to generate an `Easing.xcodeproj`from the project's `Package.swift`, be sure to have the Swift compiler installed and `Swift` added to your $PATH)
 
-To generate an `Easing.xcodeproj`from the project's `Package.swift`, be sure to have the Swift compiler installed and `Swift` added to your $PATH, then run this on a terminal:
-
-`swift package generate-xcodeproj`
+    - To quickly run the tests:
+    
+    `swift test`
+    
