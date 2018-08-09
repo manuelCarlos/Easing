@@ -75,6 +75,10 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 ### HEAD
 
-### 0.0.5 (2018-03-21)
+## 0.0.6 (2018-08-10)
 
-- Add inital SPM package preparation
+- Improve documentation and added more tests.
+
+## 0.0.5 (2018-03-21)
+
+- Add inital SPM package preparation.
