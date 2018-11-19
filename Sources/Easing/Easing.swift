@@ -113,7 +113,7 @@ private enum EasingMode <T: FloatingPointMath> {
             case .easeOut:
                 return quadraticEaseOut
             case .easeInOut:
-                return quadraticEaseOut
+                return quadraticEaseInOut
             }
         case .cubic:
             switch self {
@@ -548,19 +548,19 @@ private func elasticEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 ///
 /// Modelled after piecewise exponentially-damped sine wave:
 ///
-/// y = 1/2 * sin(13pi/4*x) * pow(2, 10 * ((2*x) - 1))          in  [0,0.5[
+/// y = 1/2 * sin((13pi/2) * 2*x) * pow(2, 10 * ((2*x) - 1))    in  [0,0.5[
 /// y = 1/2 * (sin(-13pi/2*((2x-1)+1)) * pow(2,-10(2*x-1)) + 2) in  [0.5, 1]
 ///
 /// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
 /// - Returns: A FloatingPoint value.
 private func elasticEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
-        let f = (13 * T.pi / 4 * x).sine
+        let f = ((13 * T.pi / 2) * 2 * x).sine
         return 1 / 2 * f * (10 * ((2 * x) - 1)).powerOfTwo
     } else {
         let h = (2 * x - 1) + 1
         let f = (-13 * T.pi / 2 * h).sine
-        let g = (-10 * 2 * x - 1).powerOfTwo
+        let g = (-10 * (2 * x - 1)).powerOfTwo
         return 1 / 2 * (f * g + 2)
     }
 }
@@ -604,7 +604,7 @@ private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 private func backEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
         let f = 2 * x
-        return 1 / 2 * f * f * f - f * (f * T.pi).sine
+        return 1 / 2 * (f * f * f - f * (f * T.pi).sine)
     } else {
         let f = 1 - (2 * x - 1)
         let g = (f * T.pi).sine
