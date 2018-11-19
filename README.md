@@ -75,6 +75,10 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 ### HEAD
 
+## 0.0.7 (2018-11-19)
+
+- Fixed quadratic ease-in-out return function and piecewise equations.
+
 ## 0.0.6 (2018-08-10)
 
 - Improve documentation and added more tests.
