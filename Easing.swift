@@ -548,7 +548,7 @@ private func elasticEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 ///
 /// Modelled after piecewise exponentially-damped sine wave:
 ///
-/// y = 1/2 * sin((13pi/2) * 2*x) * pow(2, 10 * ((2*x) - 1))          in  [0,0.5[
+/// y = 1/2 * sin((13pi/2) * 2*x) * pow(2, 10 * ((2*x) - 1))    in  [0,0.5[
 /// y = 1/2 * (sin(-13pi/2*((2x-1)+1)) * pow(2,-10(2*x-1)) + 2) in  [0.5, 1]
 ///
 /// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
