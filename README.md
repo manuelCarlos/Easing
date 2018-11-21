@@ -48,7 +48,7 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
    <img src="https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg" >
 </p>
 
-### Swift Package Manager support
+### Swift Package Manager support (for macOS and Linux)
 
 You'll find a SPM ready version in the `feature/SPMIntegration` branch.
 
