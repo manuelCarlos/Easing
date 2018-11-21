@@ -28,7 +28,7 @@ Supported argument types:
 
 ### Instalation
 
-#### Swift Package Manager (macOS only)
+#### Swift Package Manager (macOS and Linux)
 
 Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
 
