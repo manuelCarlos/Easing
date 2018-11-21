@@ -75,6 +75,10 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 ### HEAD
 
+## 0.0.8 (2018-11-21)
+
+- Add generate LinuxMain.swift and XCTestManifests.swift files.
+
 ## 0.0.7 (2018-11-19)
 
 - Fixed quadratic ease-in-out return function and piecewise equations.

@@ -1,6 +1,8 @@
 import XCTest
-@testable import EasingTests
 
-XCTMain([
-    testCase(EasingTests.allTests)
-])
+import EasingTests
+
+var tests = [XCTestCaseEntry]()
+tests += EasingTests.__allTests()
+
+XCTMain(tests)
