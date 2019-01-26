@@ -37,7 +37,7 @@ The *Curve* type allows access to all the different functions, for example:
     let a = Curve.quadratic.easeIn(x)
     // a = 0.09
 
-    let x2: CGFloat = 0.5
+    let x2: Double = 0.5
     let b = Curve.sine.easeOut(x2)
     // b = 0.7071067811865
 
