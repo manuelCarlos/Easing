@@ -25,8 +25,6 @@ and return a floating-point denoting the rate of change of a property over time.
 Supported argument types:
  - Float
  - Double
- - CGFloat
-
 
 ### Usage
 
@@ -47,6 +45,25 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 <p align="center">
    <img src="https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg" >
 </p>
+
+#### Want to use with `CGFloat`?
+
+Simply add a `CGFloat` extension adopting `FloatingPointMath`:
+
+    extension CGFloat: FloatingPointMath {
+    
+       public var sine: CGFloat {
+          return sin(self)
+       }
+    
+       public var cosine: CGFloat {
+          return cos(self)
+       }
+    
+       public var powerOfTwo: CGFloat {
+          return pow(2, self)
+       }
+    }
 
 ### Swift Package Manager support (for macOS and Linux)
 
