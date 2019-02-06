@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
+
 # Easing in Swift
 
 ## This project is composed of a stand-alone library of easing functions implemented in Swift 4 (Easing.swift)
