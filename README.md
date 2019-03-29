@@ -3,7 +3,7 @@
 
 # Easing in Swift
 
-##### This project is composed of a stand-alone library of easing functions implemented in Swift 4 (Easing.swift).
+##### This project is composed of a stand-alone library of easing functions implemented in Swift 5 (Easing.swift).
 
 ### Type of supported functions:
  - Quadratic
