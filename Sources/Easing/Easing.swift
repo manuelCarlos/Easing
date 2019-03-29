@@ -377,7 +377,8 @@ private func quinticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
         return 16 * x * x * x * x * x
     } else {
         let f = 2 * x - 2
-        return 1 / 2 * f * f * f * f * f + 1
+        let g = f * f * f * f * f
+        return 1 / 2 * g + 1
     }
 }
 
@@ -459,9 +460,10 @@ private func circularEaseInOut <T: FloatingPoint> (_ x: T) -> T {
         let h = 1 - sqrt(1 - 4 * x * x)
         return 1 / 2 * h
     } else {
-        let f = -(2 * x - 3) * (2 * x - 1)
-        let g = sqrt(f)
-        return 1 / 2 * (g + 1)
+        let f = 2 * x - 1
+        let g = -(2 * x - 3) * f
+        let h = sqrt(g)
+        return 1 / 2 * (h + 1)
     }
 }
 
@@ -556,7 +558,8 @@ private func elasticEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 private func elasticEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
         let f = ((13 * T.pi / 2) * 2 * x).sine
-        return 1 / 2 * f * (10 * ((2 * x) - 1)).powerOfTwo
+        let g = (10 * ((2 * x) - 1)).powerOfTwo
+        return 1 / 2 * f * g
     } else {
         let h = (2 * x - 1) + 1
         let f = (-13 * T.pi / 2 * h).sine
@@ -604,12 +607,14 @@ private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 private func backEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
         let f = 2 * x
-        return 1 / 2 * (f * f * f - f * (f * T.pi).sine)
+        let g = f * f * f - f * (f * T.pi).sine
+        return 1 / 2 * g
     } else {
         let f = 1 - (2 * x - 1)
         let g = (f * T.pi).sine
         let h = f * f * f - f * g
-        return 1 / 2 * (1 - h ) + 1 / 2
+        let i = 1 - h
+        return 1 / 2 * i + 1 / 2
     }
 }
 

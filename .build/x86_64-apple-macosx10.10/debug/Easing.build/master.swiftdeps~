@@ -1,5 +1,0 @@
-version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
-options: "9f3e0ac6be8e18c371019b86fd72e875"
-build_time: [1521663839, 468963000]
-inputs:
-  "/Users/manuel/Programming/OnGitHub/Easing/Sources/Easing/Easing.swift": [1521586796, 0]

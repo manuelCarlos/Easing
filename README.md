@@ -77,6 +77,10 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 ### HEAD
 
+## 0.1.0 (2019-03-29)
+
+- Add support for Xcode 10.2 and Swift 5.
+
 ## 0.0.8 (2018-11-21)
 
 - Add generate LinuxMain.swift and XCTestManifests.swift files.
