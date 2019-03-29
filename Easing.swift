@@ -16,10 +16,10 @@ import Foundation
 public protocol FloatingPointMath: FloatingPoint {
     /// The mathematical sine of a floating-point value.
     var sine: Self { get }
-    
+
     /// The mathematical cosine of a floating-point value.
     var cosine: Self { get }
-    
+
     /**
      The power base 2 of a floating-point value.
      In the next example 'y' has a value of '3.0'.
@@ -35,15 +35,15 @@ public protocol FloatingPointMath: FloatingPoint {
 // MARK: - FloatingPointMath extension for Float.
 
 extension Float: FloatingPointMath {
-    
+
     public var sine: Float {
         return sin(self)
     }
-    
+
     public var cosine: Float {
         return cos(self)
     }
-    
+
     public var powerOfTwo: Float {
         return pow(2, self)
     }
@@ -52,15 +52,15 @@ extension Float: FloatingPointMath {
 // MARK: - FloatingPointMath extension for Double.
 
 extension Double: FloatingPointMath {
-    
+
     public var sine: Double {
         return sin(self)
     }
-    
+
     public var cosine: Double {
         return cos(self)
     }
-    
+
     public var powerOfTwo: Double {
         return pow(2, self)
     }
@@ -79,17 +79,17 @@ public enum Curve <T: FloatingPointMath> {
     case elastic
     case back
     case bounce
-    
+
     /// The ease-in version of the curve.
     public var easeIn: (T) -> T {
         return EasingMode.easeIn.mode(self)
     }
-    
+
     // The ease-out version of the curve.
     public var easeOut: (T) -> T {
         return EasingMode.easeOut.mode(self)
     }
-    
+
     /// The ease-in-out version of the curve.
     public var easeInOut: (T) -> T {
         return EasingMode.easeInOut.mode(self)
@@ -103,7 +103,7 @@ private enum EasingMode <T: FloatingPointMath> {
     case easeIn
     case easeOut
     case easeInOut
-    
+
     func mode ( _ w: Curve <T> ) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
         switch w {
         case .quadratic:
@@ -124,7 +124,7 @@ private enum EasingMode <T: FloatingPointMath> {
             case .easeInOut:
                 return cubicEaseInOut
             }
-            
+
         case .quartic:
             switch self {
             case .easeIn:
@@ -134,7 +134,7 @@ private enum EasingMode <T: FloatingPointMath> {
             case .easeInOut:
                 return quarticEaseInOut
             }
-            
+
         case .quintic:
             switch self {
             case .easeIn:
@@ -144,7 +144,7 @@ private enum EasingMode <T: FloatingPointMath> {
             case .easeInOut:
                 return quinticEaseInOut
             }
-            
+
         case .sine:
             switch self {
             case .easeIn:
@@ -181,7 +181,7 @@ private enum EasingMode <T: FloatingPointMath> {
             case .easeInOut:
                 return elasticEaseInOut
             }
-            
+
         case .back:
             switch self {
             case .easeIn:
@@ -377,7 +377,8 @@ private func quinticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
         return 16 * x * x * x * x * x
     } else {
         let f = 2 * x - 2
-        return 1 / 2 * f * f * f * f * f + 1
+        let g = f * f * f * f * f
+        return 1 / 2 * g + 1
     }
 }
 
@@ -459,9 +460,10 @@ private func circularEaseInOut <T: FloatingPoint> (_ x: T) -> T {
         let h = 1 - sqrt(1 - 4 * x * x)
         return 1 / 2 * h
     } else {
-        let f = -(2 * x - 3) * (2 * x - 1)
-        let g = sqrt(f)
-        return 1 / 2 * (g + 1)
+        let f = 2 * x - 1
+        let g = -(2 * x - 3) * f
+        let h = sqrt(g)
+        return 1 / 2 * (h + 1)
     }
 }
 
@@ -507,7 +509,7 @@ private func exponentialEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x == 0 || x == 1 {
         return x
     }
-    
+
     if x < 1 / 2 {
         return 1 / 2 * (20 * x - 10).powerOfTwo
     } else {
@@ -556,7 +558,8 @@ private func elasticEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 private func elasticEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
         let f = ((13 * T.pi / 2) * 2 * x).sine
-        return 1 / 2 * f * (10 * ((2 * x) - 1)).powerOfTwo
+        let g = (10 * ((2 * x) - 1)).powerOfTwo
+        return 1 / 2 * f * g
     } else {
         let h = (2 * x - 1) + 1
         let f = (-13 * T.pi / 2 * h).sine
@@ -604,12 +607,14 @@ private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 private func backEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
     if x < 1 / 2 {
         let f = 2 * x
-        return 1 / 2 * (f * f * f - f * (f * T.pi).sine)
+        let g = f * f * f - f * (f * T.pi).sine
+        return 1 / 2 * g
     } else {
         let f = 1 - (2 * x - 1)
         let g = (f * T.pi).sine
         let h = f * f * f - f * g
-        return 1 / 2 * (1 - h ) + 1 / 2
+        let i = 1 - h
+        return 1 / 2 * i + 1 / 2
     }
 }
 
