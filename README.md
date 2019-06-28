@@ -23,10 +23,8 @@ The functions are design to accept a generic floating-point value as time parame
 and return a floating-point denoting the rate of change of a property over time.
 
 Supported argument types:
-
-- Float
-- Double
-- CGFloat
+ - Float
+ - Double
 
 ### Usage
 
@@ -36,7 +34,7 @@ The *Curve* type allows access to all the different functions, for example:
     let a = Curve.quadratic.easeIn(x)
     // a = 0.09
 
-    let x2: CGFloat = 0.5
+    let x2: Double = 0.5
     let b = Curve.sine.easeOut(x2)
     // b = 0.7071067811865
 
