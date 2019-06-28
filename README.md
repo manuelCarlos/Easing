@@ -97,11 +97,6 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
     
     `swift test`
     
-
-#### Manually
-
-Add the file *Easing.swift* to your project and you are ready to go.
-
 ## Changelog
 
 ### HEAD
