@@ -2,7 +2,7 @@
 
 # Easing in Swift
 
-## This project is composed of a stand-alone library of easing functions implemented in Swift 4 (Easing.swift)
+##### This project is composed of a stand-alone library of easing functions implemented in Swift.
 
 ### Type of supported functions
 
@@ -96,27 +96,3 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
   - To quickly run the tests:
     
     `swift test`
-    
-## Changelog
-
-### HEAD
-
-## 0.1.0 (2019-03-29)
-
-- Add support for Xcode 10.2 and Swift 5.
-
-## 0.0.8 (2018-11-21)
-
-- Add generate LinuxMain.swift and XCTestManifests.swift files.
-
-## 0.0.7 (2018-11-19)
-
-- Fixed quadratic ease-in-out return function and piecewise equations.
-
-## 0.0.6 (2018-08-10)
-
-- Improve documentation and added more tests.
-
-## 0.0.5 (2018-03-21)
-
-- Add inital SPM package preparation.
