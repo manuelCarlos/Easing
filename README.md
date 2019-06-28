@@ -28,6 +28,24 @@ Supported argument types:
 - Double
 - CGFloat
 
+### Usage
+
+The *Curve* type allows access to all the different functions, for example:
+
+    let x: Float = 0.3
+    let a = Curve.quadratic.easeIn(x)
+    // a = 0.09
+
+    let x2: CGFloat = 0.5
+    let b = Curve.sine.easeOut(x2)
+    // b = 0.7071067811865
+
+Here's an example of the use of the elastic ease-in-out function in an array of 75 points in the [0, 1] interval.
+
+<p align="center">
+   <img src="https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg" >
+</p>
+
 ### Instalation
 
 #### Swift Package Manager (macOS and Linux)
@@ -50,28 +68,20 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
         ]
     )
 
+  - To quickly generate a Xcode project, navigate to the project folder in the terminal and run: 
+  
+    `swift package generate-xcodeproj`
+    
+     (In order to generate an `Easing.xcodeproj`from the project's `Package.swift`, be sure to have the Swift compiler installed and `Swift` added to your $PATH)
+
+  - To quickly run the tests:
+    
+    `swift test`
+    
 
 #### Manually
 
 Add the file *Easing.swift* to your project and you are ready to go.
-
-### Usage
-
-The *Curve* type allows access to all the different functions, for example:
-
-    let x: Float = 0.3
-    let a = Curve.quadratic.easeIn(x)
-    // a = 0.09
-
-    let x2: CGFloat = 0.5
-    let b = Curve.sine.easeOut(x2)
-    // b = 0.7071067811865
-
-Here's an example of the use of the elastic ease-in-out function in an array of 75 points in the [0, 1] interval.
-
-<p align="center">
-   <img src="https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg" >
-</p>
 
 ## Changelog
 
