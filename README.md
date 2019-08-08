@@ -1,6 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
 
-# Easing in Swift
+# Easing
+### (Supports iOS, macOS and Linux)
 
 ##### This project is composed of a stand-alone library of easing functions implemented in Swift.
 
@@ -65,7 +66,7 @@ Simply add a `CGFloat` extension adopting `FloatingPointMath`:
 
 ### Instalation
 
-#### Swift Package Manager (macOS and Linux)
+#### Swift Package Manager (iOS, macOS and Linux)
 
 Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
 
