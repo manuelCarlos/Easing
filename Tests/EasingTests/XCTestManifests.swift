@@ -25,10 +25,10 @@ extension EasingTests {
     ]
 }
 
-#if !os(macOS)
+#if os(Linux)
 public func __allTests() -> [XCTestCaseEntry] {
     return [
-        testCase(EasingTests.__allTests),
+        testCase(EasingTests.__allTests)
     ]
 }
 #endif
