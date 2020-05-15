@@ -586,13 +586,17 @@ private func backEaseIn <T: FloatingPointMath> (_ x: T) -> T {
 ///
 /// Modelled after the cubic function:
 ///
-/// y = 1-((1-x)^3-(1-x)*sin((1-x)*pi))
+/// y = 1 + (1.70158 + 1) * pow(x - 1, 3) + 1.70158 * pow(x - 1, 2)
 ///
 /// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
 /// - Returns: A FloatingPoint value.
 private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
-    let f = 1 - x
-    return 1 - ( f * f * f - f * (f * T.pi).sine)
+    let c = (1.70158 as? T) ?? 1
+    let f = c + 1
+    let g = (x - 1) * (x - 1) * (x - 1)
+    let h = (x - 1) * (x - 1)
+    let i = f * g
+    return 1 + i + c * h
 }
 
 /// Returns a FloatingPoint value part of a **Back Ease-InOut** rate of change of a parameter over time.
