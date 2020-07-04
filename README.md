@@ -23,9 +23,11 @@ Each type has its own separate *ease-In*, *ease-Out* and *ease-In-Out* form.
 The functions are design to accept a generic floating-point value as time parameter,
 and return a floating-point denoting the rate of change of a property over time.
 
-Supported argument types:
- - Float
- - Double
+Supported argument types: 
+- Any type that conforms to the `Real` protocol, e.g.
+     - `Float`
+     - `Float80`
+     - `Double`
 
 ### Usage
 
@@ -45,26 +47,7 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
    <img src="https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg" >
 </p>
 
-#### Want to use with `CGFloat`?
-
-Simply add a `CGFloat` extension adopting `FloatingPointMath`:
-
-    extension CGFloat: FloatingPointMath {
-    
-       public var sine: CGFloat {
-          return sin(self)
-       }
-    
-       public var cosine: CGFloat {
-          return cos(self)
-       }
-    
-       public var powerOfTwo: CGFloat {
-          return pow(2, self)
-       }
-    }
-
-### Instalation
+### Installation
 
 #### Swift Package Manager (iOS, macOS and Linux)
 
