@@ -10,7 +10,7 @@ import Numerics
 
 /// Enum representing the types of easing curves.
 /// Each type has an `easeIn`, `easeOut` and `easeInOut` variant that accepts, and
-/// returns a generic `Real`.
+/// returns, a generic `Real`.
 ///
 /// Usage:
 /// ```
