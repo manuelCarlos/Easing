@@ -31,11 +31,7 @@ Supported argument types:
      - `Float`
      - `Float80`
      - `Double`
-
-### Dependencies
-
-- Apple's [Swift Numerics](https://github.com/apple/swift-numerics)
-
+     
 ### Usage
 
 The *Curve* type allows access to all the different functions, for example:
@@ -85,3 +81,7 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
   - To quickly run the tests:
     
     `swift test`
+    
+### Dependencies
+
+- Apple's [Swift Numerics](https://github.com/apple/swift-numerics)
