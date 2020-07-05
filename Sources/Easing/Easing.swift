@@ -6,7 +6,7 @@
 // swiftlint:disable identifier_name
 // swiftlint:disable file_length
 
-import Numerics
+import RealModule
 
 /// Enum representing the types of easing curves.
 /// Each type has an `easeIn`, `easeOut` and `easeInOut` variant that accepts, and
