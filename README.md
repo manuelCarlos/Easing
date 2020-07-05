@@ -1,7 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
 
 [![release](https://img.shields.io/github/release/manuelCarlos/Easing.svg)](https://github.com/manuelCarlos/Easing/releases/latest)
-![Build](https://github.com/manuelCarlos/Easing/workflows/Build/badge.svg?event=pull_request)
 ![Test](https://github.com/manuelCarlos/Easing/workflows/Test/badge.svg)
 
 # Easing
