@@ -5,7 +5,7 @@
 ### Added
 
 - A dependency to the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the `Real` protocol.
-
+- Support for Xcode 12 beta and swift tools version 5.3
 ### Changes
 
 - The generic `Curve` type and its properties are now constrained to types conforming to `Real`, instead of `FloatingPointMath`.
