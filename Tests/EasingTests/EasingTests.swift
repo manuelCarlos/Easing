@@ -4,7 +4,7 @@
 //  Created by Manuel Lopes on 20.03.2018.
 //
 
-import Numerics
+import RealModule
 import XCTest
 
 @testable import Easing
