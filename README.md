@@ -6,7 +6,7 @@
 # Easing
 ### (Supports iOS, macOS and Linux)
 
-##### This project is composed of a stand-alone library of easing functions implemented in Swift.
+##### This is a library that implements easing functions in Swift.
 
 ### Type of supported functions
 
@@ -31,6 +31,10 @@ Supported argument types:
      - `Float`
      - `Float80`
      - `Double`
+
+### Dependencies
+
+- Apple's [Swift Numerics](https://github.com/apple/swift-numerics)
 
 ### Usage
 
