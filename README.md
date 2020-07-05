@@ -1,5 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
 
+![Swift](https://github.com/manuelCarlos/Easing/workflows/Swift/badge.svg)
+
 # Easing
 ### (Supports iOS, macOS and Linux)
 
