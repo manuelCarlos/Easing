@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
 
 [![release](https://img.shields.io/github/release/manuelCarlos/Easing.svg)](https://github.com/manuelCarlos/Easing/releases/latest)
-![Swift](https://github.com/manuelCarlos/Easing/workflows/Swift/badge.svg?event=status)
+![Swift](https://github.com/manuelCarlos/Easing/workflows/Swift/badge.svg?branch=feature%2FnumericsSuppport&event=pull_request)
 ![Tests](https://github.com/manuelCarlos/Easing/workflows/Swift/badge.svg)
 
 # Easing
