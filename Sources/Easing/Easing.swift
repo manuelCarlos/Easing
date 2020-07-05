@@ -6,7 +6,7 @@
 // swiftlint:disable identifier_name
 // swiftlint:disable file_length
 
-import Foundatio
+import Foundation
 
 /**
  The `FloatingPointMath` protocol declares 3 mathematical operations that
