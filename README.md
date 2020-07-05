@@ -4,9 +4,7 @@
 ![Test-Linux](https://github.com/manuelCarlos/Easing/workflows/Test-Linux/badge.svg?branch=main)
 
 # Easing
-### (Supports iOS, macOS and Linux)
-
-##### This is a library that implements easing functions in Swift.
+### This is a library that implements easing functions in Swift - (Supports iOS, macOS and Linux)
 
 ### Type of supported functions:
 
