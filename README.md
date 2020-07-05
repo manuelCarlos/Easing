@@ -2,6 +2,7 @@
 
 [![release](https://img.shields.io/github/release/manuelCarlos/Easing.svg)](https://github.com/manuelCarlos/Easing/releases/latest)
 ![Test](https://github.com/manuelCarlos/Easing/workflows/Test/badge.svg?branch=main)
+![Test-Linux](https://github.com/manuelCarlos/Easing/workflows/Test-Linux/badge.svg?branch=main)
 
 # Easing
 ### (Supports iOS, macOS and Linux)
