@@ -8,7 +8,7 @@
 
 ##### This is a library that implements easing functions in Swift.
 
-### Type of supported functions
+### Type of supported functions:
 
 - Quadratic
 - Cubic
@@ -32,7 +32,7 @@ Supported argument types:
      - `Float80`
      - `Double`
      
-### Usage
+### Usage:
 
 The *Curve* type allows access to all the different functions, for example:
 
@@ -50,7 +50,7 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
    <img src="https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg" >
 </p>
 
-### Installation
+### Installation:
 
 #### Swift Package Manager (iOS, macOS and Linux)
 
@@ -82,6 +82,6 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
     
     `swift test`
     
-### Dependencies
+### Dependencies:
 
 - Apple's [Swift Numerics](https://github.com/apple/swift-numerics)
