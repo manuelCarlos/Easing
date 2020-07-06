@@ -9,7 +9,7 @@
 
 ### Changed
 
-- The generic `Curve` type and its properties are now constrained to types conforming to `Real`, instead of `FloatingPointMath`.
+- The generic `Curve` type and its properties are now constrained to types conforming to the `Real` protocol, instead of `FloatingPointMath`.
 - Improved test coverage, with testing for `Float80` and `Double` arguments.
 
 ### Removed - Breaking
