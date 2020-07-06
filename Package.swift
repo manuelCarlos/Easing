@@ -21,6 +21,8 @@ let package = Package(
         .target(
             name: "Easing",
             dependencies: [
+                // 06 Jul 2020 - No need to use `.product(name: "Numerics", package: "swift-numerics")` because we only need the `Real` protocol.
+                // Moreover, the `Numerics` product includes the `ComplexModule` which is not yet supported in the latest Ubuntu version.
                 .product(name: "RealModule", package: "swift-numerics"),
                 
             ]),
