@@ -53,8 +53,8 @@ private enum EasingMode <T: Real> {
     case easeOut
     case easeInOut
 
-    func mode ( _ w: Curve <T> ) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
-        switch w {
+    func mode ( _ c: Curve <T> ) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
+        switch c {
         case .quadratic:
             switch self {
             case .easeIn:
