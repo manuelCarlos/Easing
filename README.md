@@ -59,7 +59,7 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
 
-     // swift-tools-version:5.3
+     // swift-tools-version:5.2
 
      import PackageDescription
 
