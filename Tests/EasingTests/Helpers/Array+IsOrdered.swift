@@ -5,8 +5,6 @@
 //  Created by manuel on 09.08.18.
 //
 
-import Foundation
-
 extension Array where Iterator.Element: Comparable {
     
     func isOrdered(_ isOrderedBefore: (Iterator.Element, Iterator.Element) -> Bool) -> Bool {

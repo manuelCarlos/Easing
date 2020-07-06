@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.2
 
 import PackageDescription
 
@@ -21,7 +21,8 @@ let package = Package(
         .target(
             name: "Easing",
             dependencies: [
-                .product(name: "Numerics", package: "swift-numerics"),
+                .product(name: "RealModule", package: "swift-numerics"),
+                
             ]),
         .testTarget(
             name: "EasingTests",
