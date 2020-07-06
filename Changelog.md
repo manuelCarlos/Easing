@@ -4,8 +4,8 @@
 
 ### Added
 
-- A dependency to the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the `Real` protocol.
-- Support for Xcode 12 beta and swift tools version 5.3
+- A dependency to the `RealModule` from the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the `Real` protocol.
+- Support for Xcode 12 beta and swift tools version 5.2
 
 ### Changed
 
