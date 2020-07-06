@@ -4,11 +4,14 @@
 ![Test-Linux](https://github.com/manuelCarlos/Easing/workflows/Test-Linux/badge.svg?branch=main)
 
 # Easing
-### (Supports iOS, macOS and Linux)
 
-##### This project is composed of a stand-alone library of easing functions implemented in Swift.
+### This is a library that implements easing functions in Swift
 
-### Type of supported functions
+### Supported platforms:
+
+- iOS, macOS and Linux
+
+### Type of supported functions:
 
 - Quadratic
 - Cubic
@@ -26,11 +29,13 @@ Each type has its own separate *ease-In*, *ease-Out* and *ease-In-Out* form.
 The functions are design to accept a generic floating-point value as time parameter,
 and return a floating-point denoting the rate of change of a property over time.
 
-Supported argument types:
- - Float
- - Double
-
-### Usage
+Supported argument types: 
+- Any type that conforms to the `Real` protocol, e.g.
+     - `Float`
+     - `Float80`
+     - `Double`
+     
+### Usage:
 
 The *Curve* type allows access to all the different functions, for example:
 
@@ -48,32 +53,13 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
    <img src="https://github.com/manuelCarlos/images/blob/master/images/easing.jpeg" >
 </p>
 
-#### Want to use with `CGFloat`?
-
-Simply add a `CGFloat` extension adopting `FloatingPointMath`:
-
-    extension CGFloat: FloatingPointMath {
-    
-       public var sine: CGFloat {
-          return sin(self)
-       }
-    
-       public var cosine: CGFloat {
-          return cos(self)
-       }
-    
-       public var powerOfTwo: CGFloat {
-          return pow(2, self)
-       }
-    }
-
-### Instalation
+### Installation:
 
 #### Swift Package Manager (iOS, macOS and Linux)
 
 Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
 
-     // swift-tools-version:4.0
+     // swift-tools-version:5.2
 
      import PackageDescription
 
@@ -98,3 +84,7 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
   - To quickly run the tests:
     
     `swift test`
+    
+### Dependencies:
+
+- Apple's `RealModule` from the [Swift Numerics](https://github.com/apple/swift-numerics) package.

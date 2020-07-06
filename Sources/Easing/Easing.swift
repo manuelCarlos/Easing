@@ -6,69 +6,18 @@
 // swiftlint:disable identifier_name
 // swiftlint:disable file_length
 
-import Foundation
+import RealModule
 
-/**
- The `FloatingPointMath` protocol declares 3 mathematical operations that
- let us write functions and algorithms that use Sine, Cosine and power of 2
- math, and work on any floating-point type.
- */
-public protocol FloatingPointMath: FloatingPoint {
-    /// The mathematical sine of a floating-point value.
-    var sine: Self { get }
-
-    /// The mathematical cosine of a floating-point value.
-    var cosine: Self { get }
-
-    /**
-     The power base 2 of a floating-point value.
-     In the next example 'y' has a value of '3.0'.
-     The powerOfTwo of 'y' is therefore '8.0'.
-     
-     let y: Double = 3.0
-     let p = y.powerOfTwo
-     print(p)  // "8.0"
-     */
-    var powerOfTwo: Self { get }
-}
-
-// MARK: - FloatingPointMath extension for Float.
-
-extension Float: FloatingPointMath {
-
-    public var sine: Float {
-        return sin(self)
-    }
-
-    public var cosine: Float {
-        return cos(self)
-    }
-
-    public var powerOfTwo: Float {
-        return pow(2, self)
-    }
-}
-
-// MARK: - FloatingPointMath extension for Double.
-
-extension Double: FloatingPointMath {
-
-    public var sine: Double {
-        return sin(self)
-    }
-
-    public var cosine: Double {
-        return cos(self)
-    }
-
-    public var powerOfTwo: Double {
-        return pow(2, self)
-    }
-}
-
-/// Enum for each type of easing curve.
-
-public enum Curve <T: FloatingPointMath> {
+/// Enum representing the types of easing curves.
+/// Each type has an `easeIn`, `easeOut` and `easeInOut` variant that accepts, and
+/// returns, a generic `Real`.
+///
+/// Usage:
+/// ```
+///    let x: Float = 0.3
+///    let a = Curve.quadratic.easeIn(x) // a = 0.09
+/// ```
+public enum Curve <T: Real> {
     case quadratic
     case cubic
     case quartic
@@ -85,7 +34,7 @@ public enum Curve <T: FloatingPointMath> {
         return EasingMode.easeIn.mode(self)
     }
 
-    // The ease-out version of the curve.
+    /// The ease-out version of the curve.
     public var easeOut: (T) -> T {
         return EasingMode.easeOut.mode(self)
     }
@@ -99,13 +48,13 @@ public enum Curve <T: FloatingPointMath> {
 // MARK: - Private
 
 /// Convenience type to return the corresponding easing function for each curve.
-private enum EasingMode <T: FloatingPointMath> {
+private enum EasingMode <T: Real> {
     case easeIn
     case easeOut
     case easeInOut
 
-    func mode ( _ w: Curve <T> ) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
-        switch w {
+    func mode ( _ c: Curve <T> ) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
+        switch c {
         case .quadratic:
             switch self {
             case .easeIn:
@@ -206,39 +155,39 @@ private enum EasingMode <T: FloatingPointMath> {
 
 // MARK: - Quadratic
 
-/// Returns a FloatingPoint value part of a **Quadratic Ease-In**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quadratic Ease-In**  rate of change of a parameter over time.
 ///
 /// Modelled after the function:
 ///
 /// y = x^2
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1
-/// - Returns: A FloatingPoint value.
-private func quadraticEaseIn <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1
+/// - Returns: A `Real` value.
+private func quadraticEaseIn <T: Real> (_ x: T) -> T {
     return x * x
 }
 
-/// Returns a FloatingPoint value part of a **Quadratic Ease-Out**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quadratic Ease-Out**  rate of change of a parameter over time.
 ///
 /// Modelled after the Parabola:
 ///
 /// y = -x^2 + 2x
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quadraticEaseOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func quadraticEaseOut <T: Real> (_ x: T) -> T {
     return -x * (x - 2)
 }
 
-/// Returns a FloatingPoint value part of a **Quadratic Ease-InOut**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quadratic Ease-InOut**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise quadratic:
 ///
 /// y = (1/2)((2x)^2)              [0, 0.5[
 /// y = -(1/2)((2x-1)*(2x-3) - 1)  [0.5, 1]
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quadraticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func quadraticEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
         return 2 * x * x
     } else {
@@ -248,41 +197,41 @@ private func quadraticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
 
 // MARK: - Cubic
 
-/// Returns a FloatingPoint value part of a **Cubic Ease-In**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Cubic Ease-In**  rate of change of a parameter over time.
 ///
 /// Modelled after the cubic function:
 ///
 /// y = x^3
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func cubicEaseIn <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func cubicEaseIn <T: Real> (_ x: T) -> T {
     return x * x * x
 }
 
-/// Returns a FloatingPoint value part of a **Cubic Ease-Out**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Cubic Ease-Out**  rate of change of a parameter over time.
 ///
 /// Modelled after the cubic function:
 ///
 /// y = (x - 1)^3 + 1
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func cubicEaseOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func cubicEaseOut <T: Real> (_ x: T) -> T {
     let p = x - 1
     return  p * p * p + 1
 }
 
-/// Returns a FloatingPoint value part of a **Cubic Ease-InOut**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Cubic Ease-InOut**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise cubic function:
 ///
 /// y = 1/2 * ((2x)^3)       in  [0, 0.5[
 /// y = 1/2 * ((2x-2)^3 + 2) in  [0.5, 1]
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func cubicEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func cubicEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
         return 4 * x * x * x
     } else {
@@ -293,41 +242,41 @@ private func cubicEaseInOut <T: FloatingPoint> (_ x: T) -> T {
 
 // MARK: - Quartic
 
-/// Returns a FloatingPoint value part of a **Quartic Ease-In**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quartic Ease-In**  rate of change of a parameter over time.
 ///
 /// Modelled after the quartic function:
 ///
 /// y =  x^4
 ///
 /// - Parameter x: The FloatingPointvalue for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quarticEaseIn <T: FloatingPoint> (_ x: T) -> T {
+/// - Returns: A `Real` value.
+private func quarticEaseIn <T: Real> (_ x: T) -> T {
     return x * x * x * x
 }
 
-/// Returns a FloatingPoint value part of a **Quartic Ease-Out** rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quartic Ease-Out** rate of change of a parameter over time.
 ///
 /// Modelled after the quartic function:
 ///
 /// y = 1 - (x - 1)^4
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quarticEaseOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func quarticEaseOut <T: Real> (_ x: T) -> T {
     let f = x - 1
     return f * f * f * (1 - x) + 1
 }
 
-/// Returns a FloatingPoint value part of a **Quartic Ease-InOut**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quartic Ease-InOut**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise quartic function:
 ///
 /// y = (1/2)((2x)^4)        in [0, 0.5[
 /// y = -(1/2)((2x-2)^4 - 2) in [0.5, 1]
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quarticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func quarticEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
         return 8 * x * x * x * x
     } else {
@@ -338,41 +287,41 @@ private func quarticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
 
 // MARK: - Quintic
 
-/// Returns a FloatingPoint value part of a **Quintic Ease-In**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quintic Ease-In**  rate of change of a parameter over time.
 ///
 /// Modelled after the quintic function:
 ///
 /// y = x^5
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quinticEaseIn <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func quinticEaseIn <T: Real> (_ x: T) -> T {
     return x * x * x * x * x
 }
 
-/// Returns a FloatingPoint value part of a **Quintic Ease-Out**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quintic Ease-Out**  rate of change of a parameter over time.
 ///
 /// Modelled after the quintic function:
 ///
 /// y = (x - 1)^5 + 1
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quinticEaseOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func quinticEaseOut <T: Real> (_ x: T) -> T {
     let f = x - 1
     return f * f * f * f * f + 1
 }
 
-/// Returns a FloatingPoint value part of a **Quintic Ease-InOut**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Quintic Ease-InOut**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise quintic function:
 ///
 /// y = 1/2 * ((2x)^5)       in [0, 0.5[
 /// y = 1/2 * ((2x-2)^5 + 2) in [0.5, 1]
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func quinticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func quinticEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
         return 16 * x * x * x * x * x
     } else {
@@ -390,22 +339,22 @@ private func quinticEaseInOut <T: FloatingPoint> (_ x: T) -> T {
 ///
 /// y = sin((x-1) * pi/2) + 1
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func sineEaseIn <T: FloatingPointMath> (_ x: T) -> T {
-    return ((x - 1) * T.pi / 2).sine + 1
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func sineEaseIn <T: Real> (_ x: T) -> T {
+    return T.sin((x - 1) * T.pi / 2) + 1
 }
 
-/// Returns a FloatingPoint value part of a **Sine Ease-Out**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Sine Ease-Out**  rate of change of a parameter over time.
 ///
 /// Modelled after the function:
 ///
 /// y = sin(x * pi/2)
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func sineEaseOut <T: FloatingPointMath > (_ x: T) -> T {
-    return (x * T.pi / 2).sine
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func sineEaseOut <T: Real > (_ x: T) -> T {
+    return T.sin(x * T.pi / 2)
 }
 
 /// Returns a floating-point value part of a **Sine Ease-InOut**  rate of change of a parameter over time.
@@ -414,10 +363,10 @@ private func sineEaseOut <T: FloatingPointMath > (_ x: T) -> T {
 ///
 /// y = 1/2 * (cos(x * pi) - 1)
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func sineEaseInOut <T: FloatingPointMath > (_ x: T) -> T {
-    return 1 / 2 * (1 - (x * T.pi).cosine)
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func sineEaseInOut <T: Real > (_ x: T) -> T {
+    return 1 / 2 * ((1 - T.cos(x * T.pi)))
 }
 
 // MARK: - Circular
@@ -428,74 +377,74 @@ private func sineEaseInOut <T: FloatingPointMath > (_ x: T) -> T {
 ///
 /// y = 1 - sqrt(1-(x^2))
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func circularEaseIn <T: FloatingPoint > (_ x: T) -> T {
-    return 1 - sqrt(1 - x * x)
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func circularEaseIn <T: Real > (_ x: T) -> T {
+    return 1 - T.sqrt(1 - x * x)
 }
 
-/// Returns a FloatingPoint value part of a **Circular Ease-Out**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Circular Ease-Out**  rate of change of a parameter over time.
 ///
 /// Modelled after:
 ///
 /// y =  sqrt((2 - x) * x)
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func circularEaseOut <T: FloatingPoint > (_ x: T) -> T {
-    return sqrt((2 - x) * x)
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func circularEaseOut <T: Real > (_ x: T) -> T {
+    return T.sqrt((2 - x) * x)
 }
 
-/// Returns a FloatingPoint value part of a **Circular Ease-InOut**  rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Circular Ease-InOut**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise circular function:
 ///
 /// y = (1/2)(1 - sqrt(1 - 4x^2))           in [0, 0.5[
 /// y = (1/2)(sqrt(-(2x - 3)*(2x - 1)) + 1) in [0.5, 1]
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func circularEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func circularEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
-        let h = 1 - sqrt(1 - 4 * x * x)
+        let h = 1 - T.sqrt(1 - 4 * x * x)
         return 1 / 2 * h
     } else {
         let f = 2 * x - 1
         let g = -(2 * x - 3) * f
-        let h = sqrt(g)
+        let h = T.sqrt(g)
         return 1 / 2 * (h + 1)
     }
 }
 
 // MARK: - Exponencial
 
-/// Returns a FloatingPoint value part of an **Exponencial Ease-In**  rate of change of a parameter over time.
+/// Returns a `Real` value part of an **Exponential Ease-In**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise function:
 ///
 /// y = x when x == 0
 /// y = 2^(10(x - 1)) in ]0, 1]
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func exponentialEaseIn <T: FloatingPointMath> (_ x: T) -> T {
-    return x == 0 ? x : (10 * (x - 1)).powerOfTwo
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func exponentialEaseIn <T: Real> (_ x: T) -> T {
+    return x == 0 ? x : T.pow(2, 10 * (x - 1))
 }
 
-/// Returns a floating-point value part of an **Exponencial Ease-Out**  rate of change of a parameter over time.
+/// Returns a floating-point value part of an **Exponential Ease-Out**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise function:
 ///
 /// y = x when x == 1
 /// y = -2^(-10x) + 1 in [0, 1[
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func exponentialEaseOut <T: FloatingPointMath> (_ x: T) -> T {
-    return x == 1 ? x : 1 - (-10 * x).powerOfTwo
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func exponentialEaseOut <T: Real> (_ x: T) -> T {
+    return x == 1 ? x : 1 - T.pow(2, -10 * x)
 }
 
-/// Returns a floating-point value part of a **Exponencial Ease-InOut**  rate of change of a parameter over time.
+/// Returns a floating-point value part of a **Exponential Ease-InOut**  rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise function:
 ///
@@ -503,94 +452,94 @@ private func exponentialEaseOut <T: FloatingPointMath> (_ x: T) -> T {
 /// y = 1/2 * 2^(10(2x - 1))        in ]0.0, 0.5[
 /// y = -1/2 * 2^(-10(2x - 1))) + 1 in [0.5, 1[
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func exponentialEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func exponentialEaseInOut <T: Real> (_ x: T) -> T {
     if x == 0 || x == 1 {
         return x
     }
 
     if x < 1 / 2 {
-        return 1 / 2 * (20 * x - 10).powerOfTwo
+        return 1 / 2 * T.pow(2, 20 * x - 10)
     } else {
-        let h = (-20 * x + 10).powerOfTwo
+        let h = T.pow(2, -20 * x + 10)
         return -1 / 2 * h + 1
     }
 }
 
 // MARK: - Elastic
 
-/// Returns a FloatingPoint value part of an **Elastic Ease-In**  rate of change of a parameter over time.
+/// Returns a `Real` value part of an **Elastic Ease-In**  rate of change of a parameter over time.
 ///
 /// Modelled after the damped sine wave:
 ///
 /// y = sin(13 pi / 2 * x) * pow(2, 10 * (x - 1))
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func elasticEaseIn <T: FloatingPointMath> (_ x: T) -> T {
-    return (13 * T.pi / 2 * x).sine * (10 * (x - 1)).powerOfTwo
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func elasticEaseIn <T: Real> (_ x: T) -> T {
+    return T.sin(13 * T.pi / 2 * x) * T.pow(2, 10 * (x - 1))
 }
 
-/// Returns a FloatingPoint value part of an **Elastic Ease-Out**  rate of change of a parameter over time.
+/// Returns a `Real` value part of an **Elastic Ease-Out**  rate of change of a parameter over time.
 ///
 /// Modelled after the damped sine wave:
 ///
 /// y = sin(-13 pi/2 * (x + 1)) * pow(2, -10x) + 1
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func elasticEaseOut <T: FloatingPointMath> (_ x: T) -> T {
-    let f = (-13 * T.pi / 2 * (x + 1)).sine
-    let g = (-10 * x).powerOfTwo
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func elasticEaseOut <T: Real> (_ x: T) -> T {
+    let f = T.sin(-13 * T.pi / 2 * (x + 1))
+    let g = T.pow(2, -10 * x)
     return f * g + 1
 }
 
-/// Returns a FloatingPoint value part of an **Elastic Ease-InOut**  rate of change of a parameter over time.
+/// Returns a `Real` value part of an **Elastic Ease-InOut**  rate of change of a parameter over time.
 ///
 /// Modelled after piecewise exponentially-damped sine wave:
 ///
 /// y = 1/2 * sin((13pi/2) * 2*x) * pow(2, 10 * ((2*x) - 1))    in  [0,0.5[
 /// y = 1/2 * (sin(-13pi/2*((2x-1)+1)) * pow(2,-10(2*x-1)) + 2) in  [0.5, 1]
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func elasticEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func elasticEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
-        let f = ((13 * T.pi / 2) * 2 * x).sine
-        let g = (10 * ((2 * x) - 1)).powerOfTwo
+        let f = T.sin((13 * T.pi / 2) * 2 * x)
+        let g = T.pow(2, 10 * ((2 * x) - 1))
         return 1 / 2 * f * g
     } else {
         let h = (2 * x - 1) + 1
-        let f = (-13 * T.pi / 2 * h).sine
-        let g = (-10 * (2 * x - 1)).powerOfTwo
+        let f = T.sin(-13 * T.pi / 2 * h)
+        let g = T.pow(2, -10 * (2 * x - 1))
         return 1 / 2 * (f * g + 2)
     }
 }
 
 // MARK: - Back
 
-/// Returns a FloatingPoint value part of a **Back Ease-In** rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Back Ease-In** rate of change of a parameter over time.
 ///
 /// Modelled after the cubic function:
 ///
 /// y = x^3-x * sin(x*pi)
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func backEaseIn <T: FloatingPointMath> (_ x: T) -> T {
-    return x * x * x - x * (x * T.pi).sine
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func backEaseIn <T: Real> (_ x: T) -> T {
+    return x * x * x - x * T.sin(x * T.pi)
 }
 
-/// Returns a FloatingPoint value part of a **Back Ease-Out** rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Back Ease-Out** rate of change of a parameter over time.
 ///
 /// Modelled after the cubic function:
 ///
 /// y = 1 + (1.70158 + 1) * pow(x - 1, 3) + 1.70158 * pow(x - 1, 2)
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func  backEaseOut <T: Real> (_ x: T) -> T {
     let c = (1.70158 as? T) ?? 1
     let f = c + 1
     let g = (x - 1) * (x - 1) * (x - 1)
@@ -599,23 +548,23 @@ private func  backEaseOut <T: FloatingPointMath> (_ x: T) -> T {
     return 1 + i + c * h
 }
 
-/// Returns a FloatingPoint value part of a **Back Ease-InOut** rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Back Ease-InOut** rate of change of a parameter over time.
 ///
 /// Modelled after the piecewise cubic function:
 ///
 /// y = 1/2 * ((2x)^3-(2x)*sin(2*x*pi))                             in [0, 0.5[
 /// y = 1/2 * 1-((1-(2*x-1))^3-(1-(2*x-1))*(sin(1-(2*x-1)*pi)))+1/2 in [0.5, 1]
 ///
-/// - Parameter x: The FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func backEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
+/// - Parameter x: The `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func backEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
         let f = 2 * x
-        let g = f * f * f - f * (f * T.pi).sine
+        let g = f * f * f - f * T.sin(f * T.pi)
         return 1 / 2 * g
     } else {
         let f = 1 - (2 * x - 1)
-        let g = (f * T.pi).sine
+        let g = T.sin(f * T.pi)
         let h = f * f * f - f * g
         let i = 1 - h
         return 1 / 2 * i + 1 / 2
@@ -624,23 +573,23 @@ private func backEaseInOut <T: FloatingPointMath> (_ x: T) -> T {
 
 // MARK: - Bounce
 
-/// Returns a FloatingPoint value part of a **Bounce Ease-In** rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Bounce Ease-In** rate of change of a parameter over time.
 ///
 /// Modelled using the 'bounceEaseOut' function.
 ///
-/// - Parameter x: A FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func bounceEaseIn <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: A `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func bounceEaseIn <T: Real> (_ x: T) -> T {
     return 1 - bounceEaseOut(1 - x)
 }
 
-/// Returns a FloatingPoint value part of a **Bounce Ease-Out** rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Bounce Ease-Out** rate of change of a parameter over time.
 ///
 /// Modelled using the mother of all bumpy piecewise functions.
 ///
-/// - Parameter x: A FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func bounceEaseOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: A `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func bounceEaseOut <T: Real> (_ x: T) -> T {
     if x < 4 / 11 {
         return (121 * x * x) / 16
     } else if x < 8 / 11 {
@@ -657,20 +606,20 @@ private func bounceEaseOut <T: FloatingPoint> (_ x: T) -> T {
     }
 }
 
-/// Returns a FloatingPoint value part of a **Bounce Ease-InOut** rate of change of a parameter over time.
+/// Returns a `Real` value part of a **Bounce Ease-InOut** rate of change of a parameter over time.
 ///
 /// Modelled using the piecewise function:
 ///
 /// y = 1/2 * bounceEaseIn(2x)               in [0, 0.5[
-/// y = 1/2 * bounceEaseOut(x * 2 - 1) + 1   in [0.5, 1]
+/// y = 1/2 * bounceEaseOut(x * 2 - 1) + 1/2 in [0.5, 1]
 ///
-/// - Parameter x: A FloatingPoint value for the time axis of the function, typically 0 <= x <= 1.
-/// - Returns: A FloatingPoint value.
-private func bounceEaseInOut <T: FloatingPoint> (_ x: T) -> T {
+/// - Parameter x: A `Real` value for the time axis of the function, typically 0 <= x <= 1.
+/// - Returns: A `Real` value.
+private func bounceEaseInOut <T: Real> (_ x: T) -> T {
     if x < 1 / 2 {
         return 1 / 2 * bounceEaseIn(2 * x)
     } else {
-        let f = bounceEaseOut(x * 2 - 1) + 1
-        return 1 / 2 * f
+        let f = 1 / 2 * bounceEaseOut(x * 2 - 1)
+        return f + 1 / 2
     }
 }
