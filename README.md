@@ -87,4 +87,4 @@ Add `Easing` to your package manifest as a dependency, by adding the github URL 
     
 ### Dependencies:
 
-- Apple's `RealModule` from [Swift Numerics](https://github.com/apple/swift-numerics)
+- Apple's `RealModule` from the [Swift Numerics](https://github.com/apple/swift-numerics) package.
