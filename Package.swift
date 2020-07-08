@@ -31,5 +31,5 @@ let package = Package(
             name: "EasingTests",
             dependencies: ["Easing"])
     ],
-    swiftLanguageVersions: [.v4_2, .v5],
+    swiftLanguageVersions: [4, 5]
 )
