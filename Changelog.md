@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 08 Jul 2020
+
+### Changed
+
+- Include supported Swift versions 4 and 5, in the Package manifest, by setting `swiftLanguageVersions: [4, 5]`
+
+## [2.0.0] - 06 Jul 2020
+
 ### Added
 
 - A dependency to the `RealModule` from the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the `Real` protocol.
@@ -40,7 +48,9 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/1.0.2...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.0.1...head
+[2.0.1]: https://github.com/manuelCarlos/Easing/compare/2.0.0...2.0.1
+[2.0.0]: https://github.com/manuelCarlos/Easing/compare/1.0.1...2.0.0
 [1.0.2]: https://github.com/manuelCarlos/Easing/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/manuelCarlos/Easing/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/manuelCarlos/Easing/compare/0.1.0...1.0.0
