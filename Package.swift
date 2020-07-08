@@ -31,9 +31,5 @@ let package = Package(
             name: "EasingTests",
             dependencies: ["Easing"])
     ],
-    swiftLanguageVersions: [.v4, .v4_2, .v5],
-    platforms: [.macOS(.v10_12),
-                .iOS(.v10),
-                .tvOS(.v10),
-                .watchOS(.v3)]
+    swiftLanguageVersions: [.v4_2, .v5],
 )
