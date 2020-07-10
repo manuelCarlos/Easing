@@ -5,7 +5,7 @@
 
 # Easing
 
-### This is a library that implements easing functions in Swift
+### A library that implements easing functions in Swift.
 
 ### Supported platforms:
 
