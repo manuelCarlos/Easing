@@ -61,21 +61,23 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
 
-     // swift-tools-version:5.2
+```swift
+// swift-tools-version:5.2
 
-     import PackageDescription
+import PackageDescription
 
-     let package = Package(
-        name: "MyAwsomeProject",
-        dependencies: [
-              .package(url: "https://github.com/manuelCarlos/Easing.git", .branch("feature/SPMIntegration"))
-        ],
-        targets: [
-            .target(
-               name: "MyAwsomeProject",
-               dependencies: ["Easing"])
-        ]
-    )
+let package = Package(
+   name: "MyAwsomeProject",
+   dependencies: [
+         .package(url: "https://github.com/manuelCarlos/Easing.git", .branch("feature/SPMIntegration"))
+   ],
+   targets: [
+       .target(
+          name: "MyAwsomeProject",
+          dependencies: ["Easing"])
+   ]
+)
+```
 
   - To quickly generate a Xcode project, navigate to the project folder in the terminal and run: 
   
