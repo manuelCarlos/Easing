@@ -39,13 +39,15 @@ Supported argument types:
 
 The *Curve* type allows access to all the different functions, for example:
 
-    let x: Float = 0.3
-    let a = Curve.quadratic.easeIn(x)
-    // a = 0.09
+```swift
+let x: Float = 0.3
+let y = Curve.quadratic.easeIn(x) // y = 0.09
+```
 
-    let x2: Double = 0.5
-    let b = Curve.sine.easeOut(x2)
-    // b = 0.7071067811865
+```swift
+let x: Double = 0.5
+let y = Curve.sine.easeOut(x2) // y = 0.7071067811865    
+```
 
 Here's an example of the use of the elastic ease-in-out function in an array of 75 points in the [0, 1] interval.
 
