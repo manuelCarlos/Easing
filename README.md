@@ -69,12 +69,12 @@ import PackageDescription
 let package = Package(
    name: "MyAwsomeProject",
    dependencies: [
-         .package(url: "https://github.com/manuelCarlos/Easing.git", .branch("feature/SPMIntegration"))
+      .package(url: "https://github.com/manuelCarlos/Easing.git", .upToNextMajor(from: "2.0.0"))
    ],
    targets: [
-       .target(
-          name: "MyAwsomeProject",
-          dependencies: ["Easing"])
+      .target(
+         name: "MyAwsomeProject",
+         dependencies: ["Easing"])
    ]
 )
 ```
