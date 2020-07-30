@@ -26,8 +26,8 @@
 
 Each type has its own separate *ease-In*, *ease-Out* and *ease-In-Out* form.
 
-The functions are design to accept a generic floating-point value as time parameter,
-and return a floating-point denoting the rate of change of a property over time.
+The functions are design to accept a generic floating-point input parameter,
+and return a floating-point, denoting the rate of change of a property over time.
 
 Supported argument types: 
 - Any type that conforms to the `Real` protocol, e.g.
