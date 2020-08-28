@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.2] - 28 Aug 2020
+
+### Changed
+
+- Update the `swift-tools-version` to *v5.1* in `Package.swift`.
+
 ## [2.0.1] - 08 Jul 2020
 
 ### Changed
