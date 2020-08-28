@@ -9,7 +9,7 @@
 
 ### Supported platforms:
 
-- iOS, macOS and Linux
+- **iOS**, **macOS**, **tvOS**, **watchOS** and **Linux** (latest Ubuntu).
 
 ### Type of supported functions:
 
