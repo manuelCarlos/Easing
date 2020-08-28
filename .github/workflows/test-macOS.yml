@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: macOS (5.1)
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing macOS" -destination "platform=macOS" clean build | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "platform=macOS" clean build | xcpretty
   macOS_5_2:
     name: Test macOS (5.2)
     runs-on: macOS-latest
@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: macOS (5.2)
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing macOS" -destination "platform=macOS" clean test | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "platform=macOS" clean test | xcpretty
   macOS_5_3:
     name: Test macOS (5.3)
     runs-on: macOS-latest
@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: macOS (5.3)
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing macOS" -destination "platform=macOS" clean test | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "platform=macOS" clean test | xcpretty
   Catalyst:
     name: Test Catalyst 
     runs-on: macOS-latest
@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Catalyst
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing iOS" -destination "platform=macOS" clean test | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "platform=macOS" clean test | xcpretty
   iOS:
     name: Test iOS 
     runs-on: macOS-latest
@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: iOS - ${{ matrix.destination }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing iOS" -destination "${{ matrix.destination }}" clean test | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "${{ matrix.destination }}" clean test | xcpretty
   iOS14:
     name: Test iOS 14
     runs-on: macOS-latest
@@ -67,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: iOS - ${{ matrix.destination }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing iOS" -destination "${{ matrix.destination }}" clean test | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "${{ matrix.destination }}" clean test | xcpretty
   tvOS:
     name: Test tvOS 
     runs-on: macOS-latest
@@ -79,7 +79,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: tvOS - ${{ matrix.destination }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing tvOS" -destination "${{ matrix.destination }}" clean test | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "${{ matrix.destination }}" clean test | xcpretty
   watchOS:
     name: Build watchOS
     runs-on: macOS-latest
@@ -91,7 +91,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: watchOS - ${{ matrix.destination }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing watchOS" -destination "${{ matrix.destination }}" clean build | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Easing.xcodeproj" -scheme "Easing-Package" -destination "${{ matrix.destination }}" clean build | xcpretty
   spm:
     name: Test with SPM
     runs-on: macOS-latest    
