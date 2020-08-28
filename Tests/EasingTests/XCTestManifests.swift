@@ -21,7 +21,7 @@ extension EasingTests {
         ("test_quintic_is_strictly_ascending", test_quintic_is_strictly_ascending),
         ("test_quintic_start_end", test_quintic_start_end),
         ("test_sine_is_strictly_ascending", test_sine_is_strictly_ascending),
-        ("test_sine_start_end", test_sine_start_end),
+        ("test_sine_start_end", test_sine_start_end)
     ]
 }
 
