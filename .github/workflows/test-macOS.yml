@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: macOS (5.2)
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "platform=macOS" clean test | xcpretty
+# Temporarily disabled because it fails to load the module on this version of Xcode.
 # macOS_5_3:
 #    name: Test macOS (5.3)
 #    runs-on: macOS-latest
