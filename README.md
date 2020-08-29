@@ -4,7 +4,7 @@
 ![iOS](https://github.com/manuelCarlos/Easing/workflows/Test-iOS/badge.svg?branch=main)
 ![macOS](https://github.com/manuelCarlos/Easing/workflows/Test-macOS/badge.svg?branch=main)
 ![tvOS](https://github.com/manuelCarlos/Easing/workflows/Test-tvOS/badge.svg?branch=main)
-![Linux (latest Ubuntu)](https://github.com/manuelCarlos/Easing/workflows/Test-Linux/badge.svg?branch=main)
+![Linux](https://github.com/manuelCarlos/Easing/workflows/Test-Linux/badge.svg?branch=main)
 
 # Easing
 
