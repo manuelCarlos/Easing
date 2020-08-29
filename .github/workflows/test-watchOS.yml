@@ -1,0 +1,22 @@
+name: Test-watchOS
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  tvOS:
+    name: Test watchOS 
+    runs-on: macOS-latest
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
+    strategy:
+      matrix:
+        destination: ["OS=6.2.1,name=Apple Watch Series 5 - 44mm"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: tvOS - ${{ matrix.destination }}
+        run: set -o pipefail && xcodebuild build -scheme Easing -destination "${{ matrix.destination }}" ENABLE_TESTABILITY=YES | xcpretty
