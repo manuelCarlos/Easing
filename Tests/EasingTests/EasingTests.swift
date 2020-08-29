@@ -4,7 +4,6 @@
 //  Created by Manuel Lopes on 20.03.2018.
 //
 
-#if !os(watchOS)
 import RealModule
 import XCTest
 
@@ -286,4 +285,3 @@ final class EasingTests: XCTestCase {
         XCTAssertFalse(arrayOfDoubles.map { Curve.bounce.easeInOut($0) }.isOrdered(<))
     }
 }
-#endif

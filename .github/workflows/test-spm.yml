@@ -17,4 +17,3 @@ jobs:
       - uses: actions/checkout@v2
       - name: SPM Test
         run: swift test -c debug
-        

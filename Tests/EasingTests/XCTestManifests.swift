@@ -1,4 +1,4 @@
-#if !os(watchOS)
+
 import XCTest
 
 extension EasingTests {
@@ -25,7 +25,6 @@ extension EasingTests {
         ("test_sine_start_end", test_sine_start_end)
     ]
 }
-#endif
 
 #if os(Linux)
 public func __allTests() -> [XCTestCaseEntry] {
@@ -33,4 +32,3 @@ public func __allTests() -> [XCTestCaseEntry] {
         testCase(EasingTests.__allTests)
     ]
 }
-#endif
