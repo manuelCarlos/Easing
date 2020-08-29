@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [2.0.3] - 29 Aug 2020
+
+- Expand package CI test coverage to iOS, macOS and tvOS.
+
 ## [2.0.2] - 28 Aug 2020
 
 ### Changed
