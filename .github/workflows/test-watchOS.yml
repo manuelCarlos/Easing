@@ -16,4 +16,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Xcode watchOS
-        run: set -o pipefail && xcodebuild build -scheme Easing -destination 'platform=watchOS Simulator,name=Apple Watch Series 5 - 44mm' ENABLE_TESTING_SEARCH_PATHS=NO | xcpretty -c
+        run: set -o pipefail && xcodebuild -IDEClonedSourcePackagesDirPathOverride="$PWD/.dependencies" -derivedDataPath "$PWD/.derivedData" build -scheme "Easing" -destination "generic/platform=watchos" | xcpretty -c
