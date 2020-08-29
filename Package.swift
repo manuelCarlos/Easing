@@ -4,7 +4,6 @@
 import PackageDescription
 
 let package = Package(name: "Easing",
-                      
                       // Products define the executables and libraries produced by a package, and make them visible to other packages.
                       products: [.library(name: "Easing", targets: ["Easing"])],
 
@@ -22,4 +21,4 @@ let package = Package(name: "Easing",
                                         dependencies: [.product(name: "RealModule", package: "swift-numerics")]),
                                 .testTarget(name: "EasingTests", dependencies: ["Easing"])],
 
-                      swiftLanguageVersions: [.v4_2, .v5])
+                      swiftLanguageVersions: [.v5])
