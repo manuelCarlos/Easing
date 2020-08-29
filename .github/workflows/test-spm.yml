@@ -1,0 +1,19 @@
+name: Test-spm
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  spm:
+    name: Test with SPM
+    runs-on: macOS-latest    
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v2
+      - name: SPM Test
+        run: swift test -c debug

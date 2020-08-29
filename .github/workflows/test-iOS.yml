@@ -1,0 +1,34 @@
+name: Test-iOS
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  iOS:
+    name: Test iOS 
+    runs-on: macOS-latest
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
+    strategy:
+      matrix:
+        destination: ["OS=13.6,name=iPhone 11 Pro"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: iOS - ${{ matrix.destination }}
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "${{ matrix.destination }}" clean test | xcpretty
+  iOS14:
+    name: Test iOS 14
+    runs-on: macOS-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12_beta.app/Contents/Developer
+    strategy:
+      matrix:
+        destination: ["OS=14.0,name=iPhone 11 Pro"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: iOS - ${{ matrix.destination }}
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "${{ matrix.destination }}" clean test | xcpretty
