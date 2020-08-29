@@ -32,3 +32,4 @@ public func __allTests() -> [XCTestCaseEntry] {
         testCase(EasingTests.__allTests)
     ]
 }
+#endif
