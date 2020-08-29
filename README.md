@@ -1,10 +1,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/manuelCarlos/Easing.svg)](https://github.com/manuelCarlos/Easing/releases/latest)
-![smp](https://github.com/manuelCarlos/Easing/workflows/Test-spm/badge.svg?branch=main)
-![iOS](https://github.com/manuelCarlos/Easing/workflows/Test-iOS/badge.svg?branch=main)
-![macOS](https://github.com/manuelCarlos/Easing/workflows/Test-macOS/badge.svg?branch=main)
-![tvOS](https://github.com/manuelCarlos/Easing/workflows/Test-tvOS/badge.svg?branch=main)
-![Linux](https://github.com/manuelCarlos/Easing/workflows/Test-Linux/badge.svg?branch=main)
+![](https://github.com/manuelCarlos/Easing/workflows/Test-spm/badge.svg?branch=main)
+![](https://github.com/manuelCarlos/Easing/workflows/Test-iOS/badge.svg?branch=main)
+![](https://github.com/manuelCarlos/Easing/workflows/Test-macOS/badge.svg?branch=main)
+![](https://github.com/manuelCarlos/Easing/workflows/Test-tvOS/badge.svg?branch=main)
+![](https://github.com/manuelCarlos/Easing/workflows/Test-watchOS/badge.svg?branch=main)
+![](https://github.com/manuelCarlos/Easing/workflows/Test-Linux/badge.svg?branch=main)
 
 # Easing
 

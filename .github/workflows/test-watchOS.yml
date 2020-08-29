@@ -19,4 +19,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: tvOS - ${{ matrix.destination }}
-        run: set -o pipefail && xcodebuild build -scheme Easing -destination "${{ matrix.destination }}" ENABLE_TESTABILITY=YES | xcpretty
+        run: set -o pipefail && xcodebuild build -scheme Easing -configuration Release -sdk -destination "${{ matrix.destination }}" ENABLE_TESTABILITY=YES | xcpretty
+
