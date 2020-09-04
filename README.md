@@ -60,7 +60,7 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 ### Installation:
 
-#### Swift Package Manager (iOS, macOS and Linux)
+#### Swift Package Manager (iOS, macOS, tvOS, watchOS and Linux)
 
 Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
 
@@ -91,6 +91,8 @@ let package = Package(
   - To quickly run the tests:
     
     `swift test`
+    
+    `swift test --enable-test-discovery` (in Linux).
     
 ### Dependencies:
 
