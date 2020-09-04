@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [2.0.5] - 04 Sept 2020
+
+### Changed
+
+- Use the `--enable-test-discovery` flag to run the Linux CI tests, eliminating the need for the `LinuxMain.swift` file.
+- Delete `Tests/EasingTests/XCTestManifests.swift` and `Tests/LinuxMain.swift` since they are no longer requiered to run the tests from the command line.  
+
 ## [2.0.4] - 29 Aug 2020
 
 ### Changed
@@ -66,7 +73,8 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.0.4...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.0.5...head
+[2.0.5]: https://github.com/manuelCarlos/Easing/compare/2.0.4...2.0.5
 [2.0.4]: https://github.com/manuelCarlos/Easing/compare/2.0.3...2.0.4
 [2.0.3]: https://github.com/manuelCarlos/Easing/compare/2.0.2...2.0.3
 [2.0.2]: https://github.com/manuelCarlos/Easing/compare/2.0.1...2.0.2
