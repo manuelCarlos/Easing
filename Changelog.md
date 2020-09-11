@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.6] - 11 Sept 2020
+
+### Changed
+
+- Clean up the use of the `Float80` instances in the tests.
+
 ## [2.0.5] - 04 Sept 2020
 
 ### Changed
@@ -73,7 +79,8 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.0.5...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.0.6...head
+[2.0.6]: https://github.com/manuelCarlos/Easing/compare/2.0.5...2.0.6
 [2.0.5]: https://github.com/manuelCarlos/Easing/compare/2.0.4...2.0.5
 [2.0.4]: https://github.com/manuelCarlos/Easing/compare/2.0.3...2.0.4
 [2.0.3]: https://github.com/manuelCarlos/Easing/compare/2.0.2...2.0.3
