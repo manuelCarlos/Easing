@@ -12,7 +12,6 @@ import XCTest
 final class EasingTests: XCTestCase {
 
     private let arrayOfFloats:   [Float]   = Array(stride(from: 0, to: 1, by: 0.01))
-    private let arrayOfFloat80s: [Float80] = Array(stride(from: 0, to: 1, by: 0.01))
     private let arrayOfDoubles:  [Double]  = Array(stride(from: 0, to: 1, by: 0.01))
 
     // MARK: - Quadratic
@@ -32,10 +31,6 @@ final class EasingTests: XCTestCase {
         XCTAssertTrue(arrayOfFloats.map { Curve.quadratic.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.quadratic.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.quadratic.easeInOut($0) }.isOrdered(<))
-
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quadratic.easeIn($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quadratic.easeOut($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quadratic.easeInOut($0) }.isOrdered(<))
 
         XCTAssertTrue(arrayOfDoubles.map { Curve.quadratic.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.quadratic.easeOut($0) }.isOrdered(<))
@@ -60,10 +55,6 @@ final class EasingTests: XCTestCase {
         XCTAssertTrue(arrayOfFloats.map { Curve.cubic.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.cubic.easeInOut($0) }.isOrdered(<))
 
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.cubic.easeIn($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.cubic.easeOut($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.cubic.easeInOut($0) }.isOrdered(<))
-
         XCTAssertTrue(arrayOfDoubles.map { Curve.cubic.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.cubic.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.cubic.easeInOut($0) }.isOrdered(<))
@@ -86,10 +77,6 @@ final class EasingTests: XCTestCase {
         XCTAssertTrue(arrayOfFloats.map { Curve.quartic.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.quartic.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.quartic.easeInOut($0) }.isOrdered(<))
-
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quartic.easeIn($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quartic.easeOut($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quartic.easeInOut($0) }.isOrdered(<))
 
         XCTAssertTrue(arrayOfDoubles.map { Curve.quartic.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.quartic.easeOut($0) }.isOrdered(<))
@@ -114,10 +101,6 @@ final class EasingTests: XCTestCase {
         XCTAssertTrue(arrayOfFloats.map { Curve.quintic.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.quintic.easeInOut($0) }.isOrdered(<))
 
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quintic.easeIn($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quintic.easeOut($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.quintic.easeInOut($0) }.isOrdered(<))
-
         XCTAssertTrue(arrayOfDoubles.map { Curve.quintic.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.quintic.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.quintic.easeInOut($0) }.isOrdered(<))
@@ -140,10 +123,6 @@ final class EasingTests: XCTestCase {
         XCTAssertTrue(arrayOfFloats.map { Curve.sine.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.sine.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.sine.easeInOut($0) }.isOrdered(<))
-
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.sine.easeIn($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.sine.easeOut($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.sine.easeInOut($0) }.isOrdered(<))
 
         XCTAssertTrue(arrayOfDoubles.map { Curve.sine.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.sine.easeOut($0) }.isOrdered(<))
@@ -168,10 +147,6 @@ final class EasingTests: XCTestCase {
         XCTAssertTrue(arrayOfFloats.map { Curve.circular.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.circular.easeInOut($0) }.isOrdered(<))
 
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.circular.easeIn($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.circular.easeOut($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.circular.easeInOut($0) }.isOrdered(<))
-
         XCTAssertTrue(arrayOfDoubles.map { Curve.circular.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.circular.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.circular.easeInOut($0) }.isOrdered(<))
@@ -194,10 +169,6 @@ final class EasingTests: XCTestCase {
         XCTAssertTrue(arrayOfFloats.map { Curve.exponential.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.exponential.easeOut($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfFloats.map { Curve.exponential.easeInOut($0) }.isOrdered(<))
-
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.exponential.easeIn($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.exponential.easeOut($0) }.isOrdered(<))
-        XCTAssertTrue(arrayOfFloat80s.map { Curve.exponential.easeInOut($0) }.isOrdered(<))
 
         XCTAssertTrue(arrayOfDoubles.map { Curve.exponential.easeIn($0) }.isOrdered(<))
         XCTAssertTrue(arrayOfDoubles.map { Curve.exponential.easeOut($0) }.isOrdered(<))
@@ -222,10 +193,6 @@ final class EasingTests: XCTestCase {
         XCTAssertFalse(arrayOfFloats.map { Curve.elastic.easeOut($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfFloats.map { Curve.elastic.easeInOut($0) }.isOrdered(<))
 
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.elastic.easeIn($0) }.isOrdered(<))
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.elastic.easeOut($0) }.isOrdered(<))
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.elastic.easeInOut($0) }.isOrdered(<))
-
         XCTAssertFalse(arrayOfDoubles.map { Curve.elastic.easeIn($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfDoubles.map { Curve.elastic.easeOut($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfDoubles.map { Curve.elastic.easeInOut($0) }.isOrdered(<))
@@ -249,10 +216,6 @@ final class EasingTests: XCTestCase {
         XCTAssertFalse(arrayOfFloats.map { Curve.back.easeOut($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfFloats.map { Curve.back.easeInOut($0) }.isOrdered(<))
 
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.back.easeIn($0) }.isOrdered(<))
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.back.easeOut($0) }.isOrdered(<))
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.back.easeInOut($0) }.isOrdered(<))
-
         XCTAssertFalse(arrayOfDoubles.map { Curve.back.easeIn($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfDoubles.map { Curve.back.easeOut($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfDoubles.map { Curve.back.easeInOut($0) }.isOrdered(<))
@@ -275,10 +238,6 @@ final class EasingTests: XCTestCase {
         XCTAssertFalse(arrayOfFloats.map { Curve.bounce.easeIn($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfFloats.map { Curve.bounce.easeOut($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfFloats.map { Curve.bounce.easeInOut($0) }.isOrdered(<))
-
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.bounce.easeIn($0) }.isOrdered(<))
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.bounce.easeOut($0) }.isOrdered(<))
-        XCTAssertFalse(arrayOfFloat80s.map { Curve.bounce.easeInOut($0) }.isOrdered(<))
 
         XCTAssertFalse(arrayOfDoubles.map { Curve.bounce.easeIn($0) }.isOrdered(<))
         XCTAssertFalse(arrayOfDoubles.map { Curve.bounce.easeOut($0) }.isOrdered(<))
