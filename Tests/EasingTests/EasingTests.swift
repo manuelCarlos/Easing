@@ -11,8 +11,8 @@ import XCTest
 
 final class EasingTests: XCTestCase {
 
-    private let arrayOfFloats:   [Float]   = Array(stride(from: 0, to: 1, by: 0.01))
-    private let arrayOfDoubles:  [Double]  = Array(stride(from: 0, to: 1, by: 0.01))
+    private let arrayOfFloats: [Float] = Array(stride(from: 0, to: 1, by: 0.01))
+    private let arrayOfDoubles: [Double] = Array(stride(from: 0, to: 1, by: 0.01))
 
     // MARK: - Quadratic
 
