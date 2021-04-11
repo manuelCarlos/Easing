@@ -66,21 +66,21 @@ Here's an example of the use of the elastic ease-in-out function in an array of 
 
 #### Swift Package Manager (iOS, macOS, tvOS, watchOS and Linux)
 
-Add `Easing` to your package manifest as a dependency, by adding the github URL to your `Package.swift`, e.g.:
+Add `Easing` to your `AwsomeProject`, by adding the github URL to your `Package.swift`, e.g.:
 
 ```swift
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 
 import PackageDescription
 
 let package = Package(
-   name: "MyAwsomeProject",
+   name: "AwsomeProject",
    dependencies: [
       .package(url: "https://github.com/manuelCarlos/Easing.git", .upToNextMajor(from: "2.0.0"))
    ],
    targets: [
       .target(
-         name: "MyAwsomeProject",
+         name: "AwsomeProject",
          dependencies: ["Easing"])
    ]
 )
@@ -94,9 +94,13 @@ let package = Package(
 
   - To quickly run the tests:
     
+    (on macOS)
+    
     `swift test`
     
-    `swift test --enable-test-discovery` (in Linux).
+    (on Linux)
+
+    `swift test --enable-test-discovery` .
     
 ### Dependencies:
 
