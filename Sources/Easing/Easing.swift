@@ -8,38 +8,80 @@
 
 import RealModule
 
-/// Enum representing the types of easing curves.
-/// Each type has an `easeIn`, `easeOut` and `easeInOut` variant that accepts, and
-/// returns, a generic `Real`.
+/// Enum representing the types of easing curves and their variations.
+///
+/// Each type has an ``easeIn``, ``easeOut`` and ``easeInOut`` variant that accepts and
+/// returns a generic `Real` value.
+///
 ///
 /// Usage:
+/// ``` swift
+/// let x: Float = 0.3
+/// let a = Curve.quadratic.easeIn(x) // a = 0.09
 /// ```
-///    let x: Float = 0.3
-///    let a = Curve.quadratic.easeIn(x) // a = 0.09
-/// ```
+/// ## SeeAlso:
+/// - [Real](https://github.com/apple/swift-numerics) values.
 public enum Curve <T: Real> {
+
+    /// Quadratic easing curve.
+    ///
+    /// Quadratic refers to the fact that the equation for this curve is based on a squared variable.
     case quadratic
+
+    /// A cubic easing curve.
+    ///
+    /// A cubic ease is a bit more curved than a quadratic one.
     case cubic
+
+    /// Quartic easing curve.
     case quartic
+
+    /// Quintic easing curve.
+    ///
+    /// Quintic raises time to the fifth power.
     case quintic
+
+    /// Sine easing curve.
+    ///
+    /// Sine easing is quite gentle, even more so than quadratic easing.
     case sine
+
+    /// Circular easing curve.
+    ///
+    /// Circular easing is an arc, based on the equation for half of a circle.
     case circular
+
+    /// Exponential easing curve.
+    ///
+    /// Exponential easing has a lot of curvature.
     case exponential
+
+    /// Elastic easing curve.
     case elastic
+
+    /// Back easing curve.
     case back
+
+    /// Bounce easing curve.
     case bounce
 
     /// The ease-in version of the curve.
+    ///
+    /// Starts slow and speeds up until it stops.
     public var easeIn: (T) -> T {
         return EasingMode.easeIn.mode(self)
     }
 
     /// The ease-out version of the curve.
+    ///
+    /// The inverse of an ease-in is an ease-out, where the motion starts fast and slows to a stop.
     public var easeOut: (T) -> T {
         return EasingMode.easeOut.mode(self)
     }
 
     /// The ease-in-out version of the curve.
+    ///
+    /// An ease-in-out is a mixed combination of a first half ease-in, and second half as ease-out.
     public var easeInOut: (T) -> T {
         return EasingMode.easeInOut.mode(self)
     }
@@ -53,7 +95,7 @@ private enum EasingMode <T: Real> {
     case easeOut
     case easeInOut
 
-    func mode ( _ c: Curve <T> ) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
+    func mode (_ c: Curve <T>) -> (T) -> T { // swiftlint:disable:this cyclomatic_complexity function_body_length
         switch c {
         case .quadratic:
             switch self {
