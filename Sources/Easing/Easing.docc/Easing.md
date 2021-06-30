@@ -22,7 +22,7 @@ Objects in a physical world don’t just jump from one position to another insta
 -  ``Easing/Curve/back``
 -  ``Easing/Curve/bounce``
 
-Each type has its own separate ``Easing/Curve/easeIn``, ``Easing/Curve/easeOut`` and ``Easing/Curve/easeInOut`` form.
+Each curve has its own separate ``Easing/Curve/easeIn``, ``Easing/Curve/easeOut`` and ``Easing/Curve/easeInOut`` form.
 
 The functions are design to accept a generic floating-point input parameter,
 and return a floating-point, denoting the rate of change of a property over time.
