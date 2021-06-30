@@ -13,13 +13,13 @@ import RealModule
 /// Each type has an ``easeIn``, ``easeOut`` and ``easeInOut`` variant that accepts and
 /// returns a generic `Real` value.
 ///
-///
 /// Usage:
 /// ``` swift
 /// let x: Float = 0.3
 /// let a = Curve.quadratic.easeIn(x) // a = 0.09
 /// ```
-/// ## SeeAlso:
+///
+/// ## See Also:
 /// - [Real](https://github.com/apple/swift-numerics) values.
 public enum Curve <T: Real> {
 
