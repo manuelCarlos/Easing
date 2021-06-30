@@ -28,7 +28,7 @@ The functions are design to accept a generic floating-point input parameter,
 and return a floating-point, denoting the rate of change of a property over time.
 
 Supported argument types: 
-- Any type that conforms to the [Real](https://github.com/apple/swift-numerics) protocol, e.g.
+- Any type that conforms to the [Real](https://github.com/apple/swift-numerics/blob/main/Sources/RealModule/README.md) protocol, e.g.
      - `Float`
      - `Float80`
      - `Double`
