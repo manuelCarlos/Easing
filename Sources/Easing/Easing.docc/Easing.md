@@ -5,9 +5,8 @@ A package that implements Easing functions in Swift.
 
 ## Overview
 
-Easing functions are useful for modelling the acceleration or change in speed over time.
-
-Objects in a physical world don’t just jump from one position to another instantly, and the velocity at which they move is almost never constant. Natural movement is usually more accurately described mathematically by non-linear functions.
+Easing functions offer a way to model the transition between a start and an end value. For example, a change in speed over time, or an object's property such as its size, opacity, etc.
+Objects in a physical world don’t just jump from one position to another instantly, and the velocity at which they move is almost never constant. Natural movement is usually more accurately described mathematically by non-linear functions, of which a small subset is implemented here.
 
 ### Supported easing curves:
 
