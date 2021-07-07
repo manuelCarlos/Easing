@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.7] - 07 Jul 2021
+
+### Changed
+
+- Improve documentation of public interface to better support `DocC`.
+
 ## [2.0.6] - 11 Sept 2020
 
 ### Changed
