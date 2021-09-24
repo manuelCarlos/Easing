@@ -2,9 +2,11 @@
 
 ## [Unreleased]
 
+## [2.1.0] - 24 Sept 2021
+
 ### Changed
 
-- Update the `swift-tools-version` to *v5.5* in `Package.swift`.
+- Update the `swift-tools-version` to *v5.5* in `Package.swift` to support building the library's `DocC` documentation on Xcode 13.0.
 - Update `RealModule` dependency minimum version to *v1.0* [swift-numerics package](https://github.com/apple/swift-numerics).
 
 ## [2.0.7] - 07 Jul 2021
