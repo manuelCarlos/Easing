@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.1.0] - 24 Sept 2021
+
+### Changed
+
+- Update `RealModule` dependency minimum version to *v1.0* [swift-numerics package](https://github.com/apple/swift-numerics).
+
 ## [2.0.7] - 07 Jul 2021
 
 ### Changed
