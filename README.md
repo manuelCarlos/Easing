@@ -86,12 +86,6 @@ let package = Package(
 )
 ```
 
-  - To quickly generate a Xcode project, navigate to the project folder in the terminal and run: 
-  
-    `swift package generate-xcodeproj` (`generate-xcodeproj` is deprecated - Xcode can open and build Swift Packages directly)
-    
-     (In order to generate an `Easing.xcodeproj`from the project's `Package.swift`, be sure to have the Swift compiler installed and `Swift` added to your $PATH)
-
   - To quickly run the tests:
     
     (on macOS)
