@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Failing GitHub actions tests fix.
+
 ## [2.1.0] - 24 Sept 2021
 
 ### Changed
