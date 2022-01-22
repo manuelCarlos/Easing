@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.1.1] - 22 Jan 2022
+
+### Fixed
+
+- Failing GitHub actions tests, by updating the action to run on `Xcode_13.2.1.app`.
+
 ## [2.1.0] - 24 Sept 2021
 
 ### Changed
