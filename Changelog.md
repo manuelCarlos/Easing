@@ -98,8 +98,8 @@
 - Add support for Xcode 10.2 and Swift 5.
 
 [Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.1...head
-[2.0.7]: https://github.com/manuelCarlos/Easing/compare/2.1.0...2.1.1
-[2.0.7]: https://github.com/manuelCarlos/Easing/compare/2.0.7...2.1.0
+[2.1.1]: https://github.com/manuelCarlos/Easing/compare/2.1.0...2.1.1
+[2.1.0]: https://github.com/manuelCarlos/Easing/compare/2.0.7...2.1.0
 [2.0.7]: https://github.com/manuelCarlos/Easing/compare/2.0.6...2.0.7
 [2.0.6]: https://github.com/manuelCarlos/Easing/compare/2.0.5...2.0.6
 [2.0.5]: https://github.com/manuelCarlos/Easing/compare/2.0.4...2.0.5
