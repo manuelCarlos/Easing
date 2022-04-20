@@ -1,8 +1,7 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
-[![release](https://img.shields.io/github/release/manuelCarlos/Easing.svg)](https://github.com/manuelCarlos/Easing/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?color=ff69b4)](https://github.com/manuelCarlos/Easing/blob/master/LICENSE)
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FmanuelCarlos%2FEasing%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/manuelCarlos/Easing)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FmanuelCarlos%2FEasing%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/manuelCarlos/Easing)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FmanuelCarlos%2FEasing%2Fbadge%3Ftype%3Dplatforms&color=blue)](https://swiftpackageindex.com/manuelCarlos/Easing)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FmanuelCarlos%2FEasing%2Fbadge%3Ftype%3Dswift-versions&color=blue)](https://swiftpackageindex.com/manuelCarlos/Easing)
 
 ![](https://github.com/manuelCarlos/Easing/workflows/Test-spm/badge.svg?branch=main)
 ![](https://github.com/manuelCarlos/Easing/workflows/Test-iOS/badge.svg?branch=main)
