@@ -308,7 +308,7 @@ private func cubicEaseInOut <T: Real> (_ x: T) -> T {
 ///
 /// y =  x^4
 ///
-/// - Parameter x: The FloatingPointvalue for the time axis of the function, typically 0 <= x <= 1.
+/// - Parameter x: The `Real` for the time axis of the function, typically 0 <= x <= 1.
 /// - Returns: A `Real` value.
 private func quarticEaseIn <T: Real> (_ x: T) -> T {
     return x * x * x * x
