@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.1.3] - 17 Fev 2023
+
+### Added
+
+- `Curve` now conforms to `Sendable` protocol.
+
 ## [2.1.2] - 02 Jul 2022
 
 ### Fixed
