@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [2.1.4] - 17 Fev 2023
+
+- Update CI test workflows to use Xcode 14.2 and iOS 16.2.
+
 ## [2.1.3] - 17 Fev 2023
 
 ### Added
@@ -109,7 +113,8 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.3...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.4...head
+[2.1.4]: https://github.com/manuelCarlos/Easing/compare/2.1.3...2.1.4
 [2.1.3]: https://github.com/manuelCarlos/Easing/compare/2.1.2...2.1.3
 [2.1.2]: https://github.com/manuelCarlos/Easing/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/manuelCarlos/Easing/compare/2.1.0...2.1.1
