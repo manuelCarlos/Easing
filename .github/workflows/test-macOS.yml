@@ -8,21 +8,21 @@ on:
       - '*'
 
 jobs:
-  macOS_5_2:
+  macOS:
     name: Test macOS (5.4)
     runs-on: macOS-latest
     env: 
-      DEVELOPER_DIR: /Applications/Xcode_13.2.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     steps:
       - uses: actions/checkout@v2
-      - name: macOS (5.4)
+      - name: macOS
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "platform=macOS" clean test | xcpretty
 
   Catalyst:
     name: Test Catalyst 
     runs-on: macOS-latest
     env: 
-      DEVELOPER_DIR: /Applications/Xcode_13.2.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     steps:
       - uses: actions/checkout@v2
       - name: Catalyst
