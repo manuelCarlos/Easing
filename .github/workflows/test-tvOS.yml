@@ -12,14 +12,14 @@ jobs:
     name: Test tvOS 
     runs-on: macOS-latest
     env: 
-      DEVELOPER_DIR: /Applications/Xcode_13.2.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
         include:
-          - destination: "OS=15.2,name=Apple TV"
-            name: "tvOS 15.2"
+          - destination: "OS=16.1,name=Apple TV"
+            name: "tvOS 16.1"
     steps:
       - uses: actions/checkout@v2
       - name: ${{ matrix.name }}
