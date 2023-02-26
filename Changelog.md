@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.1.5] - 26 Fev 2023
+
+### Changed
+
+- Documentation improvements.
+
 ## [2.1.4] - 17 Fev 2023
 
 - Update CI test workflows to use Xcode 14.2 and iOS 16.2.
@@ -77,17 +83,17 @@
 
 ### Added
 
-- A dependency to the `RealModule` from the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the `Real` protocol.
+- A dependency to the `RealModule` from the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the ``Real`` protocol.
 - Support for Xcode 12 beta and Swift tools version v5.2
 
 ### Changed
 
-- The generic `Curve` type and its properties are now constrained to types conforming to the `Real` protocol, instead of `FloatingPointMath`.
+- The generic `Curve` type and its properties are now constrained to types conforming to the ``Real`` protocol, instead of `FloatingPointMath`.
 - Improved test coverage, with testing for `Float80` and `Double` arguments.
 
 ### Removed - Breaking
 
-- `FloatingPointMath` protocol has been removed from the implementation and has been replaced with the `Real` protocol.
+- `FloatingPointMath` protocol has been removed from the implementation and has been replaced with the ``Real`` protocol.
 
 ## [1.0.2] - 15 May 2020
 
@@ -113,7 +119,8 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.4...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.5...head
+[2.1.5]: https://github.com/manuelCarlos/Easing/compare/2.1.4...2.1.5
 [2.1.4]: https://github.com/manuelCarlos/Easing/compare/2.1.3...2.1.4
 [2.1.3]: https://github.com/manuelCarlos/Easing/compare/2.1.2...2.1.3
 [2.1.2]: https://github.com/manuelCarlos/Easing/compare/2.1.1...2.1.2
