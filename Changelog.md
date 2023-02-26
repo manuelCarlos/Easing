@@ -83,17 +83,17 @@
 
 ### Added
 
-- A dependency to the `RealModule` from the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the ``Real`` protocol.
+- A dependency to the `RealModule` from the [swift-numerics package](https://github.com/apple/swift-numerics), in order to use the `Real` protocol.
 - Support for Xcode 12 beta and Swift tools version v5.2
 
 ### Changed
 
-- The generic `Curve` type and its properties are now constrained to types conforming to the ``Real`` protocol, instead of `FloatingPointMath`.
+- The generic `Curve` type and its properties are now constrained to types conforming to the `Real` protocol, instead of `FloatingPointMath`.
 - Improved test coverage, with testing for `Float80` and `Double` arguments.
 
 ### Removed - Breaking
 
-- `FloatingPointMath` protocol has been removed from the implementation and has been replaced with the ``Real`` protocol.
+- `FloatingPointMath` protocol has been removed from the implementation and has been replaced with the `Real` protocol.
 
 ## [1.0.2] - 15 May 2020
 
