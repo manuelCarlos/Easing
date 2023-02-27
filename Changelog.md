@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.1.6] - 27 Fev 2023
+
+### Added
+
+- `Package.resolved` to the package.
+
 ## [2.1.5] - 26 Fev 2023
 
 ### Changed
@@ -53,7 +59,7 @@
 ### Changed
 
 - Use the `--enable-test-discovery` flag to run the Linux CI tests, eliminating the need for the `LinuxMain.swift` file.
-- Delete `Tests/EasingTests/XCTestManifests.swift` and `Tests/LinuxMain.swift` since they are no longer requiered to run the tests from the command line.  
+- Delete `Tests/EasingTests/XCTestManifests.swift` and `Tests/LinuxMain.swift` since they are no longer required to run the tests from the command line.  
 
 ## [2.0.4] - 29 Aug 2020
 
@@ -119,7 +125,8 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.5...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.6...head
+[2.1.6]: https://github.com/manuelCarlos/Easing/compare/2.1.5...2.1.6
 [2.1.5]: https://github.com/manuelCarlos/Easing/compare/2.1.4...2.1.5
 [2.1.4]: https://github.com/manuelCarlos/Easing/compare/2.1.3...2.1.4
 [2.1.3]: https://github.com/manuelCarlos/Easing/compare/2.1.2...2.1.3
