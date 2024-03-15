@@ -22,8 +22,6 @@ jobs:
         ]
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Xcode
-        uses: actions/setup-xcode@v2
         with:
           xcode-version: ${{ matrix.xcode }}
       - name: Build and test
