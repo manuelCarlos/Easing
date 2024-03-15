@@ -27,6 +27,6 @@ jobs:
               testPlan: "iOS"
               xcode: "Xcode_14.3.1"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: ${{ matrix.name }}
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "${{ matrix.destination }}" clean test | xcpretty
