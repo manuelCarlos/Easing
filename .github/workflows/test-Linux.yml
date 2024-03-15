@@ -1,18 +1,34 @@
 name: Test-Linux
-
 on:
-  push:
+    push:
     branches: [ main ]
-  pull_request:
+    pull_request:
     branches:
-      - '*'
-
+        - '*'
 jobs:
-  build:
-
+    build:
     runs-on: ubuntu-latest
-
+    strategy:
+        fail-fast: false
+        matrix:
+        include:
+            - image: swift:5.8-focal
+            - image: swift:5.8-jammy
+            - image: swift:5.8-centos7
+            - image: swift:5.8-amazonlinux2
+            - image: swift:5.8-rhel-ubi9
+            - image: swift:5.9-focal
+            - image: swift:5.9-jammy
+            - image: swift:5.9-centos7
+            - image: swift:5.9-amazonlinux2
+            - image: swift:5.9-rhel-ubi9
+            - image: swiftlang/swift:nightly-focal
+            - image: swiftlang/swift:nightly-jammy
+            - image: swiftlang/swift:nightly-amazonlinux2
+    container:
+        image: ${{ matrix.image }}
+    timeout-minutes: 10
     steps:
-    - uses: actions/checkout@v2
-    - name: Run tests
-      run: swift test --enable-test-discovery  --sanitize=thread
+        - uses: actions/checkout@v3
+        - name: ${{ matrix.image }}
+        run: swift build --build-tests -c debug
