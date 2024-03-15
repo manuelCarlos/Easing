@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.2.1] - 15 Mar 2024
+
+### Fixed
+
+- Include missing Privacy Nutrition Lable type dictionary in the privacy manifest.
+
 ## [2.2.0] - 15 Mar 2024
 
 ### Added
@@ -131,7 +137,8 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.2.0...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.2.1...head
+[2.2.1]: https://github.com/manuelCarlos/Easing/compare/2.2.0...2.2.1
 [2.2.0]: https://github.com/manuelCarlos/Easing/compare/2.1.6...2.2.0
 [2.1.6]: https://github.com/manuelCarlos/Easing/compare/2.1.5...2.1.6
 [2.1.5]: https://github.com/manuelCarlos/Easing/compare/2.1.4...2.1.5
