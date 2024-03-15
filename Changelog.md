@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.2.0] - 15 Mar 2024
+
+### Added
+
+- Privacy manifest file refering to the types of data collected by this package.
+
 ## [2.1.6] - 27 Fev 2023
 
 ### Added
@@ -125,7 +131,8 @@
 
 - Add support for Xcode 10.2 and Swift 5.
 
-[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.1.6...head
+[Unreleased]: https://github.com/manuelCarlos/Easing/compare/2.2.0...head
+[2.2.0]: https://github.com/manuelCarlos/Easing/compare/2.1.6...2.2.0
 [2.1.6]: https://github.com/manuelCarlos/Easing/compare/2.1.5...2.1.6
 [2.1.5]: https://github.com/manuelCarlos/Easing/compare/2.1.4...2.1.5
 [2.1.4]: https://github.com/manuelCarlos/Easing/compare/2.1.3...2.1.4
