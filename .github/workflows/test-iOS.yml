@@ -13,19 +13,14 @@ jobs:
     runs-on: macOS-latest
     timeout-minutes: 15
     strategy:
-      fail-fast: false
-      matrix:
-          xcode: [
-              "14.2",
-              "15.2"
-          ]
-          destination: [
-              "platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro",
-              "platform=iOS Simulator,OS=17.2,name=iPhone 14 Pro"
-          ]
+        fail-fast: false
+        matrix:
+        xcode:
+            - version: "14.2"
+            destination: "platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro"
+            - version: "15.2"
+            destination: "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro"
     steps:
-      - uses: actions/checkout@v4
-        with:
-          xcode-version: ${{ matrix.xcode }}
-      - name: Build and test
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "${{ matrix.destination }}" clean test | xcpretty
+        - uses: actions/checkout@v4
+        - name: Build and test
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "${{ matrix.xcode.destination }}" clean test | xcpretty
