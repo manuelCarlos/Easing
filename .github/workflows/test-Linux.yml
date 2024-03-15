@@ -8,11 +8,11 @@ on:
       - '*'
 
 jobs:
-  build:
-
+  Linux:
+    name: Test Linux
     runs-on: ubuntu-latest
-
+    container: swift:5.8
     steps:
-    - uses: actions/checkout@v2
-    - name: Run tests
-      run: swift test --enable-test-discovery  --sanitize=thread
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: swift test

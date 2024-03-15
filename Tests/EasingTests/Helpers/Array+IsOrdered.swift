@@ -1,8 +1,5 @@
 //
 //  Array+IsOrdered.swift
-//  Easing
-//
-//  Created by manuel on 09.08.18.
 //
 
 extension Array where Iterator.Element: Comparable {
