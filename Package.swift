@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -18,7 +18,8 @@ let package = Package(name: "Easing",
                                 // we only need the ``Real`` protocol.
                                 // Moreover, the `Numerics` product includes the `ComplexModule` which is not yet supported in the
                                 // latest Ubuntu version.
-                                dependencies: [.product(name: "RealModule", package: "swift-numerics")]
+                                dependencies: [.product(name: "RealModule", package: "swift-numerics")],
+                                resources: [.process("PrivacyInfo.xcprivacy")]
                                ),
                         .testTarget(name: "EasingTests", dependencies: ["Easing"])
                       ]
