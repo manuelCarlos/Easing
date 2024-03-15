@@ -3,16 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>NSPrivacyAccessedAPITypes</key>
-	<array>
-		<dict/>
-	</array>
+	<array/>
 	<key>NSPrivacyCollectedDataTypes</key>
 	<array>
-		<dict/>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string></string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array/>
+		</dict>
 	</array>
-	<key>NSPrivacyTracking</key>
-	<false/>
 	<key>NSPrivacyTrackingDomains</key>
 	<array/>
+	<key>NSPrivacyTracking</key>
+	<false/>
 </dict>
 </plist>
