@@ -15,10 +15,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        xcode: ["14.2"]
-        destination: [
-        "platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro"
-        ]
+          xcode: [
+              "14.2",
+              "15.2"
+          ]
+          destination: [
+              "platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro",
+              "platform=iOS Simulator,OS=17.2,name=iPhone 14 Pro"
+          ]
     steps:
       - uses: actions/checkout@v4
         with:
