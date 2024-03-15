@@ -2,26 +2,29 @@ name: Test-iOS
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
     branches:
       - '*'
 
 jobs:
   iOS:
-    name: Test iOS 
+    name: Test iOS
     runs-on: macOS-latest
-    env: 
-      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
-    timeout-minutes: 10
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        include:
-            - destination: "OS=17.2,name=iPhone 15 Pro"
-              name: "iOS 17.2"
-              xcode: "Xcode_15.2"
+        xcode: ["15.2", "14.2"]
+        destination: [
+        "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro",
+        "platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro"
+        ]
     steps:
       - uses: actions/checkout@v4
-      - name: ${{ matrix.name }}
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v2
+        with:
+          xcode-version: ${{ matrix.xcode }}
+      - name: Build and test
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Easing -destination "${{ matrix.destination }}" clean test | xcpretty
