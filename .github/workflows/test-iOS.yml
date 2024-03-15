@@ -11,8 +11,6 @@ jobs:
   iOS:
     name: Test iOS 
     runs-on: macOS-latest
-    env: 
-      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
     timeout-minutes: 10
     strategy:
       fail-fast: false
