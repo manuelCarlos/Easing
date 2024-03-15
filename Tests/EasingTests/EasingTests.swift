@@ -1,8 +1,6 @@
 //
 //  EasingTests.swift
 //
-//  Created by Manuel Lopes on 20.03.2018.
-//
 
 import RealModule
 import XCTest
